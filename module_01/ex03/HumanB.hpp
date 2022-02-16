@@ -1,0 +1,6 @@
+
+class HumanB
+{
+    private:
+    public:
+}

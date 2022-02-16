@@ -1,0 +1,6 @@
+
+class HumanA
+{
+    private:
+    public:
+}
