@@ -2,19 +2,15 @@
 #include <string>
 #include <iomanip>
 #include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-
 
 int main(void)
 {
 	{
 		Weapon	club = Weapon("crude spike club");
 
-		HumanA bob("Bob", club);
-		bob.attack();
+		std::cout << "type : " << club.getType() << std::endl;
 		club.setType("Some other type of club");
-		bob.attack();
+		std::cout << "type : " << club.getType() << std::endl;
 	}
 	return 0;
 }
