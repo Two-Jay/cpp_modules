@@ -1,5 +1,4 @@
 #include "Phonebook.hpp"
-#include <iostream>
 
 Phonebook::Phonebook() : saved_count(0)
 {

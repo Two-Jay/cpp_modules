@@ -1,3 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/17 16:27:04 by jekim             #+#    #+#             */
+/*   Updated: 2022/02/17 16:27:06 by jekim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 #include "Weapon.hpp"
 
 class HumanA
@@ -12,4 +26,6 @@ class HumanA
         ~HumanA(void);
         void attack(void);
         void setWeapon(Weapon& weapon);
-}
+};
+
+#endif

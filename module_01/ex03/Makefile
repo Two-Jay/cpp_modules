@@ -5,7 +5,8 @@ CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 RM				= rm -rf
 OBJDIR			= ./obj/
 SRCS			= main.cpp \
-					Weapon.cpp
+					Weapon.cpp \
+					HumanA.cpp
 
 OBJS_FILE		= $(SRCS:.cpp=.o)
 OBJS			= $(addprefix $(OBJDIR), $(OBJS_FILE))
