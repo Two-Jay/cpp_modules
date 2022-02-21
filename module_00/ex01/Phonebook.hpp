@@ -20,7 +20,7 @@ class Phonebook {
         void create_data(void);
         void show_saved_data(void);
         void show_saved_table(void);
-        bool is_valid_input_number(std::string str);
+        bool is_valid_input_number(std::string str, int Contact_index);
         bool is_valid_input(std::string str);
 };
 

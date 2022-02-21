@@ -1,5 +1,18 @@
 #include "Phonebook.hpp"
 
+static int simple_stoi(std::string input)
+{
+    int ret = 0;
+    for (int i = 0, len = input.length(); i < len; i++)
+    {
+        if (input[i] >= '0' && input[i] <= '9')
+            ret = ret * 10 + (input[i] - '0');
+        else
+            return -1;
+    }
+    return ret;
+}
+
 Phonebook::Phonebook() : saved_count(0)
 {
 }
@@ -12,31 +25,73 @@ void Phonebook::create_data(void)
 {
     std::string buf;
     int current_index = saved_count % MAX_SIZE;
+    std::string old_first_name = saved[current_index].get_first_name();
+    std::string old_last_name = saved[current_index].get_last_name();
+    std::string old_phone_number = saved[current_index].get_phone_number();
+    std::string old_nick_name = saved[current_index].get_nickname();
+    std::string old_secret = saved[current_index].get_secret();
 
     std::cout << "< Enter your inform >" << std::endl;
+    std::cout << "notice : press 'e' to cancel" << std::endl;
     do {
         std::cout << "firstname : " << std::ends;
         getline(std::cin, buf);
+        if (buf == "e")
+        {
+            saved[current_index].set_first_name(old_first_name);
+            return ;
+        }
         saved[current_index].set_first_name(buf);
     }   while (is_valid_input(saved[current_index].get_first_name()) == false);
     do {
         std::cout << "lastname : " << std::ends;
         getline(std::cin, buf);
+        if (buf == "e")
+        {
+            saved[current_index].set_first_name(old_first_name);
+            saved[current_index].set_last_name(old_first_name);
+            return ;
+        }
         saved[current_index].set_last_name(buf);
     }   while (is_valid_input(saved[current_index].get_last_name()) == false);
     do {
+        buf.empty();
         std::cout << "phone number : " << std::ends;
         getline(std::cin, buf);
+        if (buf == "e")
+        {
+            saved[current_index].set_first_name(old_first_name);
+            saved[current_index].set_last_name(old_first_name);
+            saved[current_index].set_phone_number(old_phone_number);
+            return ;
+        }
         saved[current_index].set_phone_number(buf);
-     }   while (is_valid_input_number(saved[current_index].get_phone_number()) == false);
+     }   while (is_valid_input_number(saved[current_index].get_phone_number(), current_index) == false);
     do {
         std::cout << "nickname : " << std::ends;
         getline(std::cin, buf);
+        if (buf == "e")
+        {
+            saved[current_index].set_first_name(old_first_name);
+            saved[current_index].set_last_name(old_first_name);
+            saved[current_index].set_phone_number(old_phone_number);
+            saved[current_index].set_nickname(old_nick_name);
+            return ;
+        }
         saved[current_index].set_nickname(buf);
     }   while (is_valid_input(saved[current_index].get_nickname()) == false);
     do {
         std::cout << "darkest secret : " << std::ends;
         getline(std::cin, buf);
+        if (buf == "e")
+        {
+            saved[current_index].set_first_name(old_first_name);
+            saved[current_index].set_last_name(old_first_name);
+            saved[current_index].set_phone_number(old_phone_number);
+            saved[current_index].set_nickname(old_nick_name);
+            saved[current_index].set_secret(old_secret);
+            return ;
+        }
         saved[current_index].set_secret(buf);
     }   while (is_valid_input(saved[current_index].get_secret()) == false);
     this->saved_count++;
@@ -44,7 +99,8 @@ void Phonebook::create_data(void)
 
 void Phonebook::show_saved_data(void)
 {
-    int index = 0, max = saved_count > 8 ? MAX_SIZE : saved_count;
+    int index, max = saved_count > 8 ? MAX_SIZE : saved_count;
+    std::string input;
 
     show_saved_table();
     if (saved_count == 0)
@@ -54,11 +110,14 @@ void Phonebook::show_saved_data(void)
     else
     {
         do {
-            std::cout << "Enter an index : " << std::ends;
-            std::cin >> index;
-            std::cin.clear();
-            std::cin.ignore(512, '\n');
-        }   while (std::cin.fail() || index < 0 || index >= max);
+            std::cout << "Enter an index (press 'e' to cancel): " << std::ends;
+            getline(std::cin, input);
+            if (input == "e")
+            {
+                return ;
+            }
+            index = simple_stoi(input);
+        }   while (input.length() == 0 || index == -1 || index >= max);
         saved[index].show_data();
     }
 }
@@ -103,22 +162,20 @@ std::string string_checker(std::string str)
     return str;
 }
 
-bool Phonebook::is_valid_input_number(std::string str)
+bool Phonebook::is_valid_input_number(std::string input, int Contact_index)
 {
-    int max = saved_count > 8 ? MAX_SIZE : saved_count;
+    int max = saved_count > MAX_SIZE ? MAX_SIZE : saved_count;
+    int converted_input = simple_stoi(input);
 
-    if (str.length() == 0) return false;
-    for (int i = 0; str[i]; i++)
+    if (input.length() == 0) return false;
+    if (converted_input == -1)
     {
-        if (str[i] < '0' && str[i] > '9')
-        {
-            std::cout << "Error : invalid number" << std::endl;
-            return false;            
-        }
+        std::cout << "Error : invalid number" << std::endl;
+        return false;
     }
     for (int i = 0; i < max; i++)
     {
-        if (str == saved[i].get_phone_number())
+        if (input == saved[i].get_phone_number()  i != Contact_index)
         {
             std::cout << "Error : duplicated number" << std::endl;
             return false;            

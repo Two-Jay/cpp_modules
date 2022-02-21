@@ -24,7 +24,6 @@ objd_build		:
 
 clean:
 				@$(RM) $(OBJDIR)
-				@$(RM) $(OBJS)
 
 fclean:			clean
 				@$(RM) $(NAME)

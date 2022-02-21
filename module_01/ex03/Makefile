@@ -1,4 +1,4 @@
-NAME			= War_game
+NAME			= Unnecessary_violence
 CXX				= c++
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
@@ -6,7 +6,8 @@ RM				= rm -rf
 OBJDIR			= ./obj/
 SRCS			= main.cpp \
 					Weapon.cpp \
-					HumanA.cpp
+					HumanA.cpp	\
+					HumanB.cpp
 
 OBJS_FILE		= $(SRCS:.cpp=.o)
 OBJS			= $(addprefix $(OBJDIR), $(OBJS_FILE))
@@ -31,6 +32,6 @@ fclean:			clean
 				@$(RM) $(NAME)
 				@echo "\033[0;91m* $(NAME) was removed *\033[0m"
 
-re:				fclean $(NAME)
+re:				fclean all
 
 .PHONY:			all clean fclean re bonus

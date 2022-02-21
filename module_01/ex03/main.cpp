@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 16:27:19 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/17 16:27:20 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/18 22:33:00 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,28 @@
 #include <string>
 #include <iomanip>
 #include "HumanA.hpp"
+#include "HumanB.hpp"
 #include "Weapon.hpp"
 
 int main(void)
 {
 	{
 		Weapon	club = Weapon("crude spike club");
-		HumanA	bob = HumanA("bob", club);
+		HumanA bob("Bob", club);
 
-		std::cout << "type : " << club.getType() << std::endl;
 		bob.attack();
-		club.setType("Some other type of club");
-		std::cout << "type : " << club.getType() << std::endl;
+		club.setType("some other type of club");
 		bob.attack();
+	}
+	std::cout << std::setfill('-') << std::setw(45) << '' << std::endl << std::setfill(' ');
+	{
+		Weapon	club = Weapon("crude spiked club");
+		HumanB	jim("Jim");
+	
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();		
 	}
 	return 0;
 }

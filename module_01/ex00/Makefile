@@ -26,12 +26,11 @@ objd_build		:
 
 clean:
 				@$(RM) $(OBJDIR)
-				@$(RM) $(OBJS)
 
 fclean:			clean
 				@$(RM) $(NAME)
 				@echo "\033[0;91m* $(NAME) was removed *\033[0m"
 
-re:				fclean $(NAME)
+re:				fclean all
 
 .PHONY:			all clean fclean re bonus

@@ -120,8 +120,12 @@ void Account::_displayTimestamp(void)
     struct tm* tm = localtime(&timer);
 
     std::cout << "["
-        << tm->tm_year + 1900
-        << tm->tm_mon + 1
+        << tm->tm_year + 1900;
+    if (tm->tm_mon + 1 < 10)
+        std::cout << "0" << tm->tm_mon + 1;
+    else
+        std::cout << tm->tm_mon + 1;
+    std::cout 
         << tm->tm_mday
         << "_"
         << tm->tm_hour
