@@ -6,7 +6,7 @@
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:38:48 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 19:18:49 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 21:37:18 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,31 @@ Animal::~Animal()
     std::cout << "🐾 Animal <" << this->getType() << "> was removed with Destructor." << std::endl;
 }
 
-Animal::Animal(const Animal)
+Animal::Animal(const Animal& n)
+{
+    this->type = n.type;
+}
+
+Animal& Animal::operator= (const Animal& n)
+{
+    if (this != &n)
+    {
+        this->setType(n.type);
+    }
+    return *this;
+}
+
+void Animal::makeSound(void)
+{
+    std::cout << "🐾" << this->getType() << " : hullabaloo..., hullabaloo...." << std::endl;
+}
+
+void Animal::setType(std::string input)
+{
+    this->type = input;
+}
+
+std::string Animal::getType(void)
+{
+    return this->type;
+}
