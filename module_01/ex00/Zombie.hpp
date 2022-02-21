@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/21 20:24:11 by jekim             #+#    #+#             */
+/*   Updated: 2022/02/21 20:24:12 by jekim            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
@@ -17,7 +29,6 @@ class Zombie
         void announce(void);
 };
 
-Zombie* zombieHorde(int n);
 Zombie* newZombie(std::string name);
 void randomChump(std::string name);
 

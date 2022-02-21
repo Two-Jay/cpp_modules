@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 15:46:03 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/18 20:16:34 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 18:28:02 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,19 @@
 #include <iostream>
 #include <string>
 
-HumanB::HumanB() {}
+HumanB::HumanB()
+{
+    // std::cout << "[System : HumanB <basic type> was created.]" << std::endl;
+}
 
 HumanB::~HumanB()
 {
+    // std::cout << "[System : HumanB <" << this->name << "> has been distroyed.]" << std::endl;
 }
 
 HumanB::HumanB(std::string name) : name(name)
 {
+    // std::cout << "[System : HumanB <basic type> was created.]" << std::endl;
 }
 
 void HumanB::setWeapon(Weapon& Weapon)

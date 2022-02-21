@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:04 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/20 18:01:45 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:25:57 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@
 #include "ClapTrap.hpp"
 #include <string>
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
     private :
+        std::string name_;
 
     public :
         ScavTrap();
@@ -30,6 +31,9 @@ class ScavTrap : public ClapTrap
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
         void guardGate();
+
+        std::string get_name(void) const;
+        void set_name(std::string name);
 
         ScavTrap& operator= (const ScavTrap& n);
 };

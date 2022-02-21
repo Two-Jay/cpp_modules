@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 16:58:32 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/20 18:01:49 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:25:36 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class FragTrap : public ClapTrap
 {
     private :
+        std::string name_;
 
     public :
         FragTrap();
@@ -30,7 +31,10 @@ class FragTrap : public ClapTrap
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
         void highFivesGuys(void);
-        
+
+        std::string get_name(void) const;
+        void set_name(std::string name);
+
         FragTrap& operator= (const FragTrap& n);
 };
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 16:58:34 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/20 21:09:38 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:25:18 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 #include <iostream>
 #include <string>
 
-FragTrap::FragTrap() : ClapTrap()
+FragTrap::FragTrap() : ClapTrap("basic_clap_name")
 {
-    this->hitpoints_ = 100;
-    this->energy_points_ = 100;
-    this->attack_damage_ = 30;
-    std::cout << "FragTrap <basic type> generated." << std::endl;
+    this->set_name("basic_frag_type");
+    this->set_hitpoints(100);
+    this->set_energy_points(100);
+    this->set_attack_damage(30);
+    std::cout << "FragTrap <" << this->name_ << "> generated." << std::endl;
 }
 
 FragTrap::~FragTrap()
@@ -27,23 +28,31 @@ FragTrap::~FragTrap()
     std::cout << "FragTrap <" << this->name_ << "> is removed." << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name + "_clap_name")
 {
-    this->name_ = name;
-    this->hitpoints_ = 100;
-    this->energy_points_ = 100;
-    this->attack_damage_ = 30;
+    this->set_name(name);
+    this->set_hitpoints(100);
+    this->set_energy_points(100);
+    this->set_attack_damage(30);
     std::cout << "FragTrap <" << this->name_ << "> generated." << std::endl;
 }
 
 FragTrap& FragTrap::operator= (const FragTrap& n)
 {
-    ClapTrap::operator=(n);
+    // ClapTrap::operator=(n);
+    this->set_name(n.get_name());
+    this->set_hitpoints(n.get_hitpoints());
+    this->set_energy_points(n.get_energy_points());
+    this->set_attack_damage(n.get_attack_damage());
     return *this;
 }
 
 FragTrap::FragTrap(const FragTrap& n) : ClapTrap(n)
 {
+    this->set_name(n.get_name());
+    this->set_hitpoints(n.get_hitpoints());
+    this->set_energy_points(n.get_energy_points());
+    this->set_attack_damage(n.get_attack_damage());
 }
 
 void FragTrap::attack(std::string const &target)
@@ -99,4 +108,14 @@ void FragTrap::highFivesGuys(void)
     {
         std::cout << "FragTrap <" << this->name_ << "> asks you : \"Gimme five!!\" **Clap Clap** " << std::endl;
     }
+}
+
+std::string FragTrap::get_name(void) const
+{
+    return this->name_;
+}
+
+void FragTrap::set_name(std::string name)
+{
+    this->name_ = name;
 }

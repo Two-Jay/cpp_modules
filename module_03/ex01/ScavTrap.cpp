@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:12 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/20 20:33:28 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:25:50 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 #include <iostream>
 #include <string>
 
-ScavTrap::ScavTrap() : ClapTrap()
+ScavTrap::ScavTrap() : ClapTrap("basic_clap_type")
 {
-    this->hitpoints_ = 100;
-    this->energy_points_ = 50;
-    this->attack_damage_ = 20;
-    std::cout << "ScavTrap <basic type> generated." << std::endl;
+    this->set_name("basic_scav_type");
+    this->set_hitpoints(100);
+    this->set_energy_points(50);
+    this->set_attack_damage(20);
+    std::cout << "ScavTrap <" << this->name_ << "> generated." << std::endl;
 };
 
 ScavTrap::~ScavTrap()
@@ -27,23 +28,31 @@ ScavTrap::~ScavTrap()
     std::cout << "ScavTrap <" << this->name_ << "> is removed." << std::endl;
 };
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name + "_clap_name")
 {
-    this->name_ = name;
-    this->hitpoints_ = 100;
-    this->energy_points_ = 50;
-    this->attack_damage_ = 20;
+    this->set_name(name);
+    this->set_hitpoints(100);
+    this->set_energy_points(50);
+    this->set_attack_damage(20);
     std::cout << "ScavTrap <" << this->name_ << "> generated." << std::endl;
 }
 
 ScavTrap& ScavTrap::operator= (const ScavTrap& n)
 {
-    ClapTrap::operator=(n);
+    // ClapTrap::operator=(n);
+    this->set_name(n.get_name());
+    this->set_hitpoints(n.get_hitpoints());
+    this->set_energy_points(n.get_energy_points());
+    this->set_attack_damage(n.get_attack_damage());
     return *this;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& n) : ClapTrap(n)
 {
+    this->set_name(n.get_name());
+    this->set_hitpoints(n.get_hitpoints());
+    this->set_energy_points(n.get_energy_points());
+    this->set_attack_damage(n.get_attack_damage());
 }
 
 void ScavTrap::attack(std::string const &target)
@@ -99,4 +108,14 @@ void ScavTrap::guardGate()
     {
         std::cout << "ScavTrap <" << this->name_ << "> holds a vigil beside the gate." << std::endl;
     }
+}
+
+std::string ScavTrap::get_name(void) const
+{
+    return this->name_;
+}
+
+void ScavTrap::set_name(std::string name)
+{
+    this->name_ = name;
 }

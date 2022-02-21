@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 16:58:34 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 09:39:47 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:21:06 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,14 @@ void FragTrap::highFivesGuys(void)
     {
         std::cout << "FragTrap <" << this->name_ << "> asks you : \"Gimme five!!\" **Clap Clap** " << std::endl;
     }
+}
+
+std::string FragTrap::get_name(void) const
+{
+    return this->name_;
+}
+
+void FragTrap::set_name(std::string name)
+{
+    this->name_ = name;
 }

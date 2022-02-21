@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:12 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 09:39:40 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:21:54 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,14 @@ void ScavTrap::guardGate()
     {
         std::cout << "ScavTrap <" << this->name_ << "> holds a vigil beside the gate." << std::endl;
     }
+}
+
+std::string ScavTrap::get_name(void) const
+{
+    return this->name_;
+}
+
+void ScavTrap::set_name(std::string name)
+{
+    this->name_ = name;
 }

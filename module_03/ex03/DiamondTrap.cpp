@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 20:46:55 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 11:31:33 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:20:52 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,12 @@ void DiamondTrap::whoAmI()
     std::cout << "DiamondTrap : I'm " << DiamondTrap::get_name() << " and my ancestor is " << ClapTrap::get_name() << std::endl;    
 }
 
+std::string DiamondTrap::get_name(void) const
+{
+    return this->name_;
+}
 
-// 다형성 원칙 위배
-// ClapTrap 의 멤버를 그대로 쓰면서 변수 접근을 격리시키는 방법은 없나?
-
-// std::string DiamondTrap::get_name(void) const
-// {
-//     return this->name;
-// }
-
-// void DiamondTrap::set_name(std::string name)
-// {
-//     this->name = name;
-// }
+void DiamondTrap::set_name(std::string name)
+{
+    this->name_ = name;
+}

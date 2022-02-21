@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:00:10 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 11:31:48 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:20:09 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class DiamondTrap : public FragTrap, public ScavTrap
 {
     private :
-        std::string name;
+        std::string name_;
 
     public :
         DiamondTrap();
@@ -30,9 +30,8 @@ class DiamondTrap : public FragTrap, public ScavTrap
 
         void attack(std::string const &target);
         void whoAmI();
-        // diamondtrap.cpp 메모 참고
-        // std::string get_name(void) const;
-        // void set_name(std::string name);
+        std::string get_name(void) const;
+        void set_name(std::string name);
 
         DiamondTrap& operator=(const DiamondTrap& n);
 };

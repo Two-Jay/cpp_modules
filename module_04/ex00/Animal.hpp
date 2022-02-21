@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/17 16:27:04 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 18:27:15 by jekim            ###   ########.fr       */
+/*   Created: 2022/02/21 17:38:57 by jekim             #+#    #+#             */
+/*   Updated: 2022/02/21 18:51:34 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_HPP
-# define HUMAN_HPP
-#include "Weapon.hpp"
+#ifndef ANIMAL_HPP
+# define ANIMAL_HPP
 
-class HumanA
+# include <string>
+
+class Animal
 {
-    private:
-        std::string name;
-        Weapon& weapon;
+    protected :
+        std::string type;
 
-    public:
-        HumanA(std::string name, Weapon& weapon);
-        ~HumanA(void);
-        void attack(void);
+    public :
+        Animal();
+        Animal(std::string type);
+        Animal(const Animal &n);
+        ~Animal();
+        
+        void setType(std::string input);
+        std::string getType(void);
+        void makeSound(void);
+        
+        Animal& operator= (const Animal &n);
 };
 
 #endif

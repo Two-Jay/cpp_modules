@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:42:42 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 11:14:08 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/21 15:24:35 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,45 @@
 #include <iostream>
 #include <string>
 
-ClapTrap::ClapTrap() : hitpoints_(10), energy_points_(10), attack_damage_(0) {}
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap()
 {
-    this->name_ = name;
-    this->hitpoints_ = 10;
-    this->energy_points_ = 10;
-    this->attack_damage_ = 0;
+    this->set_name("basic_clap_type");
+    this->set_hitpoints(10);
+    this->set_energy_points(10);
+    this->set_attack_damage(0);
     std::cout << "ClapTrap <" << this->name_ << "> generated." << std::endl;
 }
+
+ClapTrap::ClapTrap(std::string name)
+{
+    this->set_name(name);
+    this->set_hitpoints(10);
+    this->set_energy_points(10);
+    this->set_attack_damage(0);
+    std::cout << "ClapTrap <" << this->name_ << "> generated." << std::endl;
+}
+
 ClapTrap::~ClapTrap()
 {
     std::cout << "ClapTrap <" << this->name_ << "> is removed." << std::endl;
 }
-ClapTrap::ClapTrap(const ClapTrap &n) { *this = n; }
+
+ClapTrap::ClapTrap(const ClapTrap &n)
+{
+    this->set_name(n.get_name());
+    this->set_hitpoints(n.get_hitpoints());
+    this->set_energy_points(n.get_energy_points());
+    this->set_attack_damage(n.get_attack_damage());
+    std::cout << "ClapTrap <" << this->name_ << "> was copied." << std::endl;
+}
 
 ClapTrap& ClapTrap::operator= (const ClapTrap& n)
 {
-    this->name_ = n.name_;
-    this->hitpoints_ = n.hitpoints_;
-    this->energy_points_ = n.energy_points_;
-    this->attack_damage_ = n.attack_damage_;
+    this->set_name(n.get_name());
+    this->set_hitpoints(n.get_hitpoints());
+    this->set_energy_points(n.get_energy_points());
+    this->set_attack_damage(n.get_attack_damage());
+    std::cout << "ClapTrap <" << this->name_ << "> was assigned." << std::endl;
     return *this;
 }
 
@@ -81,3 +99,42 @@ void ClapTrap::beRepaired(unsigned int amount)
     }
 }
 
+std::string ClapTrap::get_name() const
+{
+	return this->name_;
+}
+
+unsigned int ClapTrap::get_hitpoints() const
+{
+	return this->hitpoints_;
+}
+
+unsigned int ClapTrap::get_energy_points() const
+{
+	return this->energy_points_;
+}
+
+unsigned int ClapTrap::get_attack_damage() const
+{
+	return this->attack_damage_;
+}
+
+void ClapTrap::set_name(std::string name)
+{
+    this->name_ = name;
+}
+
+void ClapTrap::set_hitpoints(unsigned int amount)
+{
+	this->hitpoints_ = amount;
+}
+
+void ClapTrap::set_energy_points(unsigned int amount)
+{
+	this->energy_points_ = amount;
+}
+
+void ClapTrap::set_attack_damage(unsigned int amount)
+{
+	this->attack_damage_ = amount;
+}
