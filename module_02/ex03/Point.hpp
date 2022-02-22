@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 23:47:34 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 14:44:54 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/22 16:04:27 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ class Point
         Point& operator= (const Point& p);
         Fixed const get_Fixed_x(void) const;
         Fixed const get_Fixed_y(void) const;
-        
+
+        Point operator- (const Point &n) const;
+        Point operator+ (const Point &n) const;
+
         friend std::ostream& operator<< (std::ostream& os, Point& p);
         friend std::ostream& operator<< (std::ostream& os, const Point& p);
 };

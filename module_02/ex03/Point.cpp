@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 23:47:28 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 14:40:15 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/22 16:09:00 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,18 @@ std::ostream &operator<<(std::ostream &os, const Point &p)
 {
     os << "[x: " << p.get_Fixed_x() << " y: " << p.get_Fixed_y() << "]";
     return os;
+}
+
+Point Point::operator- (const Point &p) const
+{
+    Point ret(this->get_Fixed_x() - p.get_Fixed_y(), this->get_Fixed_y() - p.get_Fixed_y());
+
+    return ret;
+}
+
+Point Point::operator+ (const Point &p) const
+{
+    Point ret(this->get_Fixed_x() + p.get_Fixed_y(), this->get_Fixed_y() + p.get_Fixed_y());
+
+    return ret;
 }
