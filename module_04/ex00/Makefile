@@ -6,21 +6,22 @@
 #    By: jekim <arabi1549@naver.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:26:39 by jekim             #+#    #+#              #
-#    Updated: 2022/02/21 20:26:43 by jekim            ###   ########.fr        #
+#    Updated: 2022/02/22 18:27:05 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= ex00
+NAME			= AnimalParty
 CXX				= c++
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 RM				= rm -rf
 OBJDIR			= ./obj/
 SRCS			= main.cpp	\
-					ClapTrap.cpp \
-					ScavTrap.cpp \
-					FragTrap.cpp \
-					DiamondTrap.cpp
+					Animal.cpp \
+					Cat.cpp \
+					Dog.cpp \
+					WrongAnimal.cpp \
+					WrongCat.cpp 
 					
 OBJS_FILE		= $(SRCS:.cpp=.o)
 OBJS			= $(addprefix $(OBJDIR), $(OBJS_FILE))

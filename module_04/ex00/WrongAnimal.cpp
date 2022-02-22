@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongWrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 17:38:48 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 17:44:41 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/22 17:55:48 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include <iostream>
 #include <string>
 
-Animal::Animal() : type("Animal")
+WrongAnimal::WrongAnimal() : type("WrongAnimal")
 {
     std::cout << "🐾  <" << this->getType() << "> was generated with Default Constructor." << std::endl;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
     std::cout << "🐾  <" << this->getType() << "> was removed with Destructor." << std::endl;
 }
 
-Animal::Animal(const Animal& n)
+WrongAnimal::WrongAnimal(const WrongAnimal& n)
 {
     this->type = n.type;
     std::cout << "🐾  <" << this->getType() << "> was generated with Copy Constructor." << std::endl;
 }
 
-Animal& Animal::operator= (const Animal& n)
+WrongAnimal& WrongAnimal::operator= (const WrongAnimal& n)
 {
     if (this != &n)
     {
@@ -40,17 +40,17 @@ Animal& Animal::operator= (const Animal& n)
     return *this;
 }
 
-void Animal::makeSound(void) const
+void WrongAnimal::makeSound(void) const
 {
     std::cout << "🐾 " << this->getType() << " : hullabaloo..., hullabaloo...." << std::endl;
 }
 
-void Animal::setType(std::string input)
+void WrongAnimal::setType(std::string input)
 {
     this->type = input;
 }
 
-std::string Animal::getType(void) const
+std::string WrongAnimal::getType(void) const
 {
     return this->type;
 }
