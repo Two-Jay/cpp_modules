@@ -6,7 +6,7 @@
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 09:52:47 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 18:25:21 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/22 18:33:30 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ int main(void)
         delete x;
         delete z;
     }
+    system("leaks AnimalParty > leaks_result && cat leaks_result | grep leaks && rm -rf leaks_result");
     return 0;
 }
