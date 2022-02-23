@@ -6,7 +6,7 @@
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:38:25 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 17:51:42 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/23 11:18:24 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ Dog& Dog::operator= (const Dog& n)
 
 void Dog::makeSound(void) const
 {
-    std::cout << "🐶  " << this->getType() << " : meow, meow...." << std::endl;
+    std::cout << "🐶  " << this->getType() << " : Bow-wow! Bow-wow!  " << std::endl;
 }

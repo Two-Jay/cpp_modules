@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 18:28:43 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 20:50:59 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/23 10:49:28 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ class Brain {
         ~Brain();
         
         std::string get_idea(int index) const;
+        void pull_idea(int idx);
+        void set_idea(std::string input);
+
         int get_last_index(void) const;
         void increase_last_index(void);
-        void set_idea(std::string input);
+        void decrease_last_index(void);
 
         Brain& operator= (const Brain&);
 };

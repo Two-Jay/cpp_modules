@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 09:52:47 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 22:04:26 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/23 11:30:15 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,26 +113,59 @@ int main(void)
         // }
     }
     {
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< Cats Party!! >==" << std::endl << std::endl << std::setfill(' ');
         Cat* cptr = new Cat();
-
+        
         cptr->think_idea("I'm hungry...");
         std::cout << cptr->getType() << " : " << cptr->remember_last_idea() << std::endl;
         cptr->think_idea("Let's get some chicken!");
         std::cout << cptr->getType() << " : " << cptr->remember_last_idea() << std::endl;
         cptr->think_idea("Yammi!!!!!!!!!!!!!!");
         std::cout << cptr->getType() << " : " << cptr->remember_last_idea() << std::endl;
+
+        *cptr = *cptr;
+
+        std::cout << cptr->getType() << " : " << cptr->remember_last_idea() << std::endl;
+        cptr->forget_last_idea();
+        std::cout << cptr->getType() << " : " << cptr->remember_last_idea() << std::endl;
+        cptr->forget_last_idea();
+        std::cout << cptr->getType() << " : " << cptr->remember_last_idea() << std::endl;
+        cptr->forget_last_idea();
+        std::cout << cptr->getType() << " : " << cptr->remember_last_idea() << std::endl;
         
-        Cat another_cat = *cptr;
-        std::cout << another_cat.getType() << " : " << cptr->remember_last_idea() << std::endl;
-        another_cat.think_idea("I'm hungry...");
-        std::cout << another_cat.getType() << " : " << cptr->remember_last_idea() << std::endl;
-        another_cat.think_idea("Let's get some chicken!");
-        std::cout << another_cat.getType() << " : " << cptr->remember_last_idea() << std::endl;
-        another_cat.think_idea("Yammi!!!!!!!!!!!!!!");
-        std::cout << another_cat.getType() << " : " << cptr->remember_last_idea() << std::endl;
+
+
+
+        // Cat another_cat = *cptr;
+        // std::cout << another_cat.getType() << " : " << another_cat.remember_last_idea() << std::endl;
+        // another_cat.forget_last_idea();
+        // std::cout << another_cat.getType() << " : " << another_cat.remember_last_idea() << std::endl;
+        // another_cat.forget_last_idea();
+        // std::cout << another_cat.getType() << " : " << another_cat.remember_last_idea() << std::endl;
+        // another_cat.think_idea("Let's get some chicken!");
+        // std::cout << another_cat.getType() << " : " << another_cat.remember_last_idea() << std::endl;
+        // another_cat.forget_last_idea();
+        // std::cout << another_cat.getType() << " : " << another_cat.remember_last_idea() << std::endl;
+
+        // Cat another_cat2(*cptr);
+        // std::cout << another_cat2.getType() << " : " << another_cat2.remember_last_idea() << std::endl;
+        // another_cat2.think_idea("I'wll be the king of fishhunters");
+        // std::cout << another_cat2.getType() << " : " << another_cat2.remember_last_idea() << std::endl;
 
         delete cptr;
+        system("leaks AnimalPartyWithBrain > leaks_result && cat leaks_result | grep leaks && rm -rf leaks_result");
+    }
+    {
+        // std::string input;
 
+        // Dog walwal;
+
+        // while (true)
+        // {
+        //     std::cout << "What would you like to do with your dog ? : ";
+        //     getline(std::cout, input);
+        //     if ()
+        // }
     }
     system("leaks AnimalPartyWithBrain > leaks_result && cat leaks_result | grep leaks && rm -rf leaks_result");
     return 0;

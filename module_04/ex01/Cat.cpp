@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:38:25 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 22:00:13 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/23 11:34:17 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 Cat::Cat()
 {
+    std::cout << "😸  <" << this->getType() << "> was generated with Default Constructor." << std::endl;
     this->brain = new Brain();
     this->setType("Cat");
-    std::cout << "😸  <" << this->getType() << "> was generated with Default Constructor." << std::endl;
+    //std::cout << "😸  <" << this->getType() << "> was generated with Default Constructor." << std::endl;
 }
 
 Cat::~Cat()
@@ -28,21 +29,20 @@ Cat::~Cat()
 
 Cat::Cat(const Cat& n)
 {
-    this->setType(n.getType());
-    delete this->brain;
-    this->brain = new Brain(*n.brain);
     std::cout << "😸  <" << this->getType() << "> was generated with Copy Constructor." << std::endl;
+    this->setType(n.getType());
+    this->brain = new Brain(*n.brain);
 }
 
 Cat& Cat::operator= (const Cat& n)
 {
+    std::cout << "😸  <" << this->getType() << "> was copied with assignment operator." << std::endl;
     if (this != &n)
     {
         delete this->brain;
         this->brain = new Brain(*n.brain);
         this->setType(n.getType());
     }
-    std::cout << "😸  <" << this->getType() << "> was copied with assignment operator." << std::endl;
     return *this;
 }
 
@@ -59,4 +59,10 @@ void Cat::think_idea(std::string idea)
 void Cat::makeSound(void) const
 {
     std::cout << "😸  " << this->getType() << " : meow, meow...." << std::endl;
+}
+
+void Cat::forget_last_idea(void)
+{
+    this->brain->pull_idea(this->brain->get_last_index() - 1);
+    this->brain->decrease_last_index();
 }
