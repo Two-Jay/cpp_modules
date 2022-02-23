@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jekim <arabi1549@naver.com>                +#+  +:+       +#+         #
+#    By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:26:39 by jekim             #+#    #+#              #
-#    Updated: 2022/02/22 18:52:26 by jekim            ###   ########.fr        #
+#    Updated: 2022/02/22 20:45:30 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ OBJDIR			= ./obj/
 SRCS			= main.cpp	\
 					Animal.cpp \
 					Cat.cpp \
-					Dog.cpp 
+					Dog.cpp \
+					Brain.cpp
 					
 OBJS_FILE		= $(SRCS:.cpp=.o)
 OBJS			= $(addprefix $(OBJDIR), $(OBJS_FILE))
