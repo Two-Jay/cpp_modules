@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 13:49:52 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/24 17:42:02 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/25 02:25:20 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cure::Cure() : AMateria("cure")
 
 Cure::Cure(const Cure& n) : AMateria(n.getType())
 {
-    std::cout << "💊  <Cure> was generated with Copy Constructor." << std::endl;
+    std::cout << "💊  <" << n.getType() << "> was generated with Copy Constructor." << std::endl;
 }
 
 Cure::~Cure()
@@ -32,19 +32,16 @@ Cure::~Cure()
 
 Cure& Cure::operator= (const Cure& n)
 {
-    this->setType(n.getType());
-    std::cout << "💊  <Cure> was copied with assignment operator." << std::endl;  
+    std::cout << "💊  <" << n.getType() << "> was copied with assignment operator." << std::endl;
+    return *this;
 }
 
 void Cure::use(ICharacter& target)
 {
-    std::cout << "💊  <Cure> heals " << target.getName() << "'s wounds." << std::endl;    
+    std::cout << "💊  <Cure> - heals " << target.getName() << "'s wounds." << std::endl;    
 }
 
-AMateria* Cure::clone()
+Cure* Cure::clone() const
 {
-    return new Cure();
+    return new Cure(*this);
 }
-
-
-

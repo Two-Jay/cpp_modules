@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:00:57 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/24 17:41:41 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/25 01:25:16 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "ICharacter.hpp"
 #include <string>
+
+class ICharacter;
 
 class AMateria
 {
@@ -30,7 +32,7 @@ class AMateria
         void setType(std::string const &type);
         std::string const & getType() const;
         virtual AMateria* clone() const = 0;
-        virtual void use(ICharacter& target);
+        virtual void use(ICharacter &target);
 
         AMateria& operator= (const AMateria& n);
 };

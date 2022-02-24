@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/24 09:43:49 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/25 01:12:01 by jekim            ###   ########.fr       */
+/*   Created: 2022/02/25 02:43:41 by jekim             #+#    #+#             */
+/*   Updated: 2022/02/25 02:44:20 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
-# include "AMateria.hpp"
-
-class Cure : public AMateria
+class Bureaucrat
 {
-    public :
-        Cure();
-        Cure(const Cure& n);
-        virtual ~Cure();
-        
-        virtual Cure* clone() const;
-        virtual void use(ICharacter& target);
+    
+}
 
-        Cure& operator= (const Cure& n);
-};
-
-#endif // CURE_HPP
+#endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 15:04:24 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/24 15:05:24 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/25 01:11:52 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class Ice : public AMateria
     public :
         Ice();
         Ice(const Ice& n);
-        ~Ice();
+        virtual ~Ice();
         
-        virtual AMateria* clone();
+        virtual Ice* clone() const;
         virtual void use(ICharacter& target);
 
         Ice& operator= (const Ice& n);
