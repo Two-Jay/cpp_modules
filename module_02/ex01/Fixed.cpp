@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:23:10 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/19 16:44:38 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/23 21:33:18 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ Fixed::Fixed(const float value)
 Fixed::Fixed(const Fixed& n)
 {
     std::cout << "Copy constructor called" << std::endl;
-    // this->value = n.getRawBits(); //* Copy constructor without Assignation operator
     *this = n; //* Copy constructor with Assignation operator  
 }
 
