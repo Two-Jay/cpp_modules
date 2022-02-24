@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:20:46 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/19 22:08:38 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/24 15:15:06 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@ class Fixed {
         int toInt(void) const;
         
         Fixed& operator= (const Fixed& n);
-
-        friend std::ostream& operator<< (std::ostream& os, const Fixed& n);
 };
 
+std::ostream& operator<< (std::ostream& os, const Fixed& n);
 
 
 #endif
