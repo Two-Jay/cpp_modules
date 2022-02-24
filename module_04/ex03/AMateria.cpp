@@ -6,7 +6,7 @@
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 13:39:09 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/23 17:35:57 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/24 09:48:12 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,13 @@ AMateria::AMateria()
 
 AMateria::AMateria(const std::string &type)
 {
-    std::cout << "📦  <AMateria> was generated with Copy Constructor." << std::endl;
+    std::cout << "📦  <AMateria> was generated with Default Constructor." << std::endl;
     this->type = type;
+}
+
+AMateria::AMateria(const AMateria& n) : type(n.getType())
+{
+    std::cout << "📦  <AMateria> was generated with Copy Constructor." << std::endl;
 }
 
 AMateria::~AMateria()
