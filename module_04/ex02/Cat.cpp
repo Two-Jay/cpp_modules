@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/22 16:38:25 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/23 12:45:05 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/23 12:51:52 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Brain.hpp"
+#include "Cat.hpp"
 #include <iostream>
 
-Dog::Dog()
+Cat::Cat()
 {
-    std::cout << "🐶  <" << this->getType() << "> was generated with Default Constructor." << std::endl;
+    std::cout << "😸  <" << this->getType() << "> was generated with Default Constructor." << std::endl;
     this->brain = new Brain();
-    this->setType("Dog");
+    this->setType("Cat");
+    //std::cout << "😸  <" << this->getType() << "> was generated with Default Constructor." << std::endl;
 }
 
-Dog::~Dog()
+Cat::~Cat()
 {
     delete this->brain;
-    std::cout << "🐶  <" << this->getType() << "> was removed with Destructor." << std::endl;    
+    std::cout << "😸  <" << this->getType() << "> was removed with Destructor." << std::endl;    
 }
 
-Dog::Dog(const Dog& n)
+Cat::Cat(const Cat& n)
 {
-    std::cout << "🐶  <" << this->getType() << "> was generated with Copy Constructor." << std::endl;
+    std::cout << "😸  <" << this->getType() << "> was generated with Copy Constructor." << std::endl;
     this->setType(n.getType());
     this->brain = new Brain(*n.brain);
 }
 
-Dog& Dog::operator= (const Dog& n)
+Cat& Cat::operator= (const Cat& n)
 {
-    std::cout << "🐶  <" << this->getType() << "> was copied with assignment operator." << std::endl;
+    std::cout << "😸  <" << this->getType() << "> was copied with assignment operator." << std::endl;
     if (this != &n)
     {
         delete this->brain;
@@ -46,22 +46,22 @@ Dog& Dog::operator= (const Dog& n)
     return *this;
 }
 
-void Dog::makeSound(void) const
-{
-    std::cout << "🐶  " << this->getType() << " : Bow-wow! Bow-wow!  " << std::endl;
-}
-
-std::string Dog::remember_last_idea(void)
+std::string Cat::remember_last_idea(void)
 {
     return this->brain->get_idea(this->brain->get_last_index() - 1);
 }
 
-void Dog::think_idea(std::string idea)
+void Cat::think_idea(std::string idea)
 {
     this->brain->set_idea(idea);
 }
 
-void Dog::forget_last_idea(void)
+void Cat::makeSound(void)
+{
+    std::cout << "😸  " << this->getType() << " : meow, meow...." << std::endl;
+}
+
+void Cat::forget_last_idea(void)
 {
     this->brain->pull_idea(this->brain->get_last_index() - 1);
     this->brain->decrease_last_index();

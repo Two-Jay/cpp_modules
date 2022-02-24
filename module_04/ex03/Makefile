@@ -5,20 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jekim <arabi1549@naver.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/21 20:25:25 by jekim             #+#    #+#              #
-#    Updated: 2022/02/23 16:41:42 by jekim            ###   ########.fr        #
+#    Created: 2022/02/21 20:26:39 by jekim             #+#    #+#              #
+#    Updated: 2022/02/23 12:54:03 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= karenFilter
+NAME			= ex03
 CXX				= c++
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 RM				= rm -rf
 OBJDIR			= ./obj/
-SRCS			= main.cpp	\
-					Karen.cpp
-
+SRCS			= main.cpp	
+					
 OBJS_FILE		= $(SRCS:.cpp=.o)
 OBJS			= $(addprefix $(OBJDIR), $(OBJS_FILE))
 

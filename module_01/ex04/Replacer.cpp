@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replacer.cpp                                       :+:      :+:    :+:   */
+/*   Replacer.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/18 17:54:16 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/19 00:21:59 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/23 16:40:23 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void Replacer::replace(void)
 {
     std::string line;
     std::string::size_type to_find_l = this->to_find.length();
+    std::string::size_type to_replace_l = this->to_replace.length();
+
     while (getline(this->file_from, line))
     {
         std::string::size_type n = 0;
@@ -60,7 +62,7 @@ void Replacer::replace(void)
         {
             line.erase(n, to_find_l);
             line.insert(n, to_replace);
-            n++;
+            n += to_replace_l;
         }
         this->file_to << line << std::endl;
     }

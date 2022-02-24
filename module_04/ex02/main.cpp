@@ -6,7 +6,7 @@
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/21 09:52:47 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/23 12:41:54 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/23 12:52:40 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,98 +21,8 @@
 # define HEAD_WIDTH 80
 # define TEST_MAX_SIZE 8
 
-void ordinalNumber_logger(int i, std::string msg)
-{
-    if (i == 1)
-    {
-        std::cout << i << "st" << msg;           
-    }
-    else if (i == 2)
-    {
-        std::cout << i << "nd" << msg;               
-    }
-    else
-    {
-        std::cout << i << "th" << msg;                  
-    }    
-}
-
-void whoAreYou(const Animal *p)
-{
-    p->getType();
-    p->makeSound();
-}
-
 int main(void)
 {
-    {
-        // std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< Brain Test >==" << std::endl << std::endl << std::setfill(' ');
-        
-        // Brain *bptr = new Brain();
-        // std::string input;
-        // int i = -1;
-
-        // while (++i < 100)
-        // {
-        //     std::cout << "what is your idea...? : ";
-        //     getline(std::cin, input);
-        //     if (input == "exit")
-        //         break ;
-        //     bptr->set_idea(input);
-        // }
-        
-        // Brain another_bptr(*bptr);
-        // Brain assigned_bptr = another_bptr;
-        
-        // for (int i = 0; i < bptr->get_last_index(); i++)
-        // {
-        //     std::cout << "[this is ";
-        //     ordinalNumber_logger(i, " idea... : ");
-        //     std::cout << bptr->get_idea(i); 
-        //     std::cout << "]" << std::endl;
-        // }
-        // delete bptr;
-        // std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "another brain....." << std::endl << std::endl << std::setfill(' ');
-        // for (int i = 0; i < another_bptr.get_last_index(); i++)
-        // {
-        //     std::cout << "[this is ";
-        //     ordinalNumber_logger(i, " idea... : ");
-        //     std::cout << another_bptr.get_idea(i); 
-        //     std::cout << "]" << std::endl;
-        // }
-        // std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "assigned brain....." << std::endl << std::endl << std::setfill(' ');
-        // for (int i = 0; i < assigned_bptr.get_last_index(); i++)
-        // {
-        //     std::cout << "[this is ";
-        //     ordinalNumber_logger(i, " idea... : ");
-        //     std::cout << assigned_bptr.get_idea(i); 
-        //     std::cout << "]" << std::endl;
-        // }
-    }
-    {
-        // // PASS
-        // std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< Lined Animal Party!! >==" << std::endl << std::endl << std::setfill(' ');
-        // const Animal* meta[TEST_MAX_SIZE];
-        
-        // for(int i = 0; i < TEST_MAX_SIZE; i++)
-        // {
-        //     if (i % 2 == 1)
-        //         meta[i] = new Cat();
-        //     else
-        //         meta[i] = new Dog();
-        // }
-        // for(int i = 0; i < TEST_MAX_SIZE; i++)
-        // {
-        //     std::cout << "[this is ";
-        //     ordinalNumber_logger(i, " Animal.. ");
-        //     std::cout << "]" << std::endl; 
-        //     whoAreYou(meta[i]);
-        // }
-        // for(int i = 0; i < TEST_MAX_SIZE; i++)
-        // {
-        //     delete meta[i];
-        // }
-    }
     {
         std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< Cats Party!! >==" << std::endl << std::endl << std::setfill(' ');
         Cat* cptr = new Cat();

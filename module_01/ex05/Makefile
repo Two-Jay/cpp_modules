@@ -6,13 +6,13 @@
 #    By: jekim <arabi1549@naver.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:25:21 by jekim             #+#    #+#              #
-#    Updated: 2022/02/21 20:25:22 by jekim            ###   ########.fr        #
+#    Updated: 2022/02/23 16:41:36 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= Karen_2.0
 CXX				= c++
-CXXFLAGS		= -fsanitize=address -Wall -Wextra -Werror -std=c++98
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 RM				= rm -rf
 OBJDIR			= ./obj/
