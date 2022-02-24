@@ -5,19 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jekim <arabi1549@naver.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/02/21 20:25:35 by jekim             #+#    #+#              #
-#    Updated: 2022/02/24 15:07:39 by jekim            ###   ########.fr        #
+#    Created: 2022/02/21 20:26:39 by jekim             #+#    #+#              #
+#    Updated: 2022/02/23 12:53:37 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Fixed
+NAME			= AnimalPartyWithoutAnimal
 CXX				= c++
-CXXFLAGS		= -fsanitize=address -Wall -Wextra -Werror -std=c++98
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 RM				= rm -rf
 OBJDIR			= ./obj/
 SRCS			= main.cpp	\
-					Fixed.cpp
+					Animal.cpp \
+					Cat.cpp \
+					Dog.cpp \
+					Brain.cpp
 					
 OBJS_FILE		= $(SRCS:.cpp=.o)
 OBJS			= $(addprefix $(OBJDIR), $(OBJS_FILE))

@@ -6,13 +6,13 @@
 #    By: jekim <arabi1549@naver.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:25:13 by jekim             #+#    #+#              #
-#    Updated: 2022/02/21 20:25:13 by jekim            ###   ########.fr        #
+#    Updated: 2022/02/23 16:41:29 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= replace
 CXX				= c++
-CXXFLAGS		= -fsanitize=address -Wall -Wextra -Werror -std=c++98
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 RM				= rm -rf
 OBJDIR			= ./obj/

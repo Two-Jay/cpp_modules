@@ -6,7 +6,7 @@
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 23:47:34 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 16:04:27 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/24 15:16:33 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ class Point
 
         Point operator- (const Point &n) const;
         Point operator+ (const Point &n) const;
-
-        friend std::ostream& operator<< (std::ostream& os, Point& p);
-        friend std::ostream& operator<< (std::ostream& os, const Point& p);
+        Point operator* (const Point &n) const;
+        Point operator/ (const Point &n) const;
 };
+
+std::ostream& operator<< (std::ostream& os, Point& p);
+std::ostream& operator<< (std::ostream& os, const Point& p);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:20:46 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/19 23:35:29 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/24 15:15:54 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,8 @@ class Fixed {
         static Fixed& max(Fixed& a, Fixed& b);
         static const Fixed& min(const Fixed& a, const Fixed& b);
         static const Fixed& max(const Fixed& a, const Fixed& b);
-        
-        friend std::ostream& operator<< (std::ostream& os, const Fixed& n);
 };
 
-
+std::ostream& operator<< (std::ostream& os, const Fixed& n);
 
 #endif

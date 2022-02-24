@@ -6,7 +6,7 @@
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:20:46 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 16:07:03 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/24 15:16:13 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ class Fixed {
         static const Fixed& min(const Fixed& a, const Fixed& b);
         static const Fixed& max(const Fixed& a, const Fixed& b);
         
-        friend std::ostream& operator<< (std::ostream& os, const Fixed& n);
 };
 
+std::ostream& operator<< (std::ostream& os, const Fixed& n);
 
 
 #endif
