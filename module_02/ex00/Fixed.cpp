@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:23:10 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/19 10:39:33 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/24 13:37:11 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 
-Fixed::Fixed()
+Fixed::Fixed() : value(0)
 {
     std::cout << "Default constructor called" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 23:47:28 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 16:09:00 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/24 11:21:21 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,20 @@ Point Point::operator- (const Point &p) const
 Point Point::operator+ (const Point &p) const
 {
     Point ret(this->get_Fixed_x() + p.get_Fixed_y(), this->get_Fixed_y() + p.get_Fixed_y());
+
+    return ret;
+}
+
+Point Point::operator* (const Point &p) const
+{
+    Point ret(this->get_Fixed_x() * p.get_Fixed_y(), this->get_Fixed_y() * p.get_Fixed_y());
+
+    return ret;
+}
+
+Point Point::operator/ (const Point &p) const
+{
+    Point ret(this->get_Fixed_x() / p.get_Fixed_y(), this->get_Fixed_y() / p.get_Fixed_y());
 
     return ret;
 }
