@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 13:39:09 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/24 09:48:12 by jekim            ###   ########.fr       */
+/*   Created: 2022/02/24 16:00:34 by jekim             #+#    #+#             */
+/*   Updated: 2022/02/24 17:29:11 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,19 @@ AMateria::~AMateria()
     std::cout << "📦  <AMateria> was removed with Destructor." << std::endl;
 }
 
+void AMateria::setType(std::string const &type)
+{
+    this->type = type;
+}
+
 const std::string& AMateria::getType() const
 {
     return this->type;
+}
+
+void AMateria::use(ICharacter& target)
+{
+    std::cout << "📦  <AMateria> was used for " << target.getName() << ", : \"what is it?\" "<< std::endl;    
 }
 
 AMateria& AMateria::operator= (const AMateria& n)
@@ -48,8 +58,3 @@ AMateria& AMateria::operator= (const AMateria& n)
     }
     return *this;
 }
-
-    // std::cout << "📦  <AMateria> was generated with Default Constructor." << std::endl;
-    // std::cout << "📦  <AMateria> was removed with Destructor." << std::endl;
-    // std::cout << "📦  <AMateria> was generated with Copy Constructor." << std::endl;
-    // std::cout << "📦  <AMateria> was copied with assignment operator." << std::endl;

@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 13:09:46 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/24 16:00:10 by jekim            ###   ########.fr       */
+/*   Created: 2022/02/24 16:01:29 by jekim             #+#    #+#             */
+/*   Updated: 2022/02/24 18:05:07 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-# define IMATERIASOURCE_HPP
+#include "MateriaSource.hpp"
 
-#include "AMateria.hpp"
 
-class IMateriaSource
+MateriaSource::MateriaSource()
 {
-    public:
-        virtual ~IMateriaSource() {}
-        virtual void learnMateria(AMateria*) = 0;
-        virtual AMateria* createMateria(std::string const & type) = 0;
-};
+}
 
-#endif // IMATERIASOURCE_HPP
+MateriaSource::MateriaSource(const MateriaSource& n)
+{    
+}
+
+MateriaSource::~MateriaSource()
+{
+}
+
+void MateriaSource::learnMateria(AMateria*)
+{
+}
+
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+}
+
+MateriaSource& MateriaSource::operator= (const MateriaSource& n)
+{
+}

@@ -6,7 +6,7 @@
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 13:12:35 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/23 13:19:02 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/24 13:55:20 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,8 @@ int main()
     delete src;
     return 0;
 }
+
+    // std::cout << "📦  <AMateria> was generated with Default Constructor." << std::endl;
+    // std::cout << "📦  <AMateria> was removed with Destructor." << std::endl;
+    // std::cout << "📦  <AMateria> was generated with Copy Constructor." << std::endl;
+    // std::cout << "📦  <AMateria> was copied with assignment operator." << std::endl;
