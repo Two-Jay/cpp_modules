@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 23:47:28 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/22 16:09:00 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/23 21:20:35 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ Point &Point::operator=(const Point &p)
 {
     if (this != &p)
     {
+        (Fixed)this->x = Fixed(p.get_Fixed_x());
+        (Fixed)this->y = Fixed(p.get_Fixed_y());
     }
     return *this;
 }

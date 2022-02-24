@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jekim <arabi1549@naver.com>                +#+  +:+       +#+         #
+#    By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:26:10 by jekim             #+#    #+#              #
-#    Updated: 2022/02/21 20:26:10 by jekim            ###   ########.fr        #
+#    Updated: 2022/02/23 21:21:22 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME			= BSP
 CXX				= c++
-CXXFLAGS		= -fsanitize=address -Wall -Wextra -Werror -std=c++98
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 RM				= rm -rf
 OBJDIR			= ./obj/

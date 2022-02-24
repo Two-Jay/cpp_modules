@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:20:13 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/20 11:12:57 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/23 21:21:08 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int main( void ) {
     Point b(Fixed(15), Fixed(15));
     Point c(Fixed(0), Fixed(0));
 
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << c << std::endl;
+    Point d = b;
+    std::cout << d << std::endl;
     std::cout 
         << bsp(a, b, c, Point(Fixed(9), Fixed(9))) << std::endl;
+    system("leaks BSP");
     return 0;
 }
