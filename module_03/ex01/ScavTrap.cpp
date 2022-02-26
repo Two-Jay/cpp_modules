@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:12 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 15:25:50 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/26 17:00:57 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 #include <iostream>
 #include <string>
 
+// Also, You can create an instance of ScavTrap without calling of ClapTrap("str")
+// If so, the compiler will calls ClapTrap's default constructor without parameter Implicitly.
+// But, something Implicit would be cause a problem. :)
 ScavTrap::ScavTrap() : ClapTrap("basic_clap_type")
 {
     this->set_name("basic_scav_type");
@@ -39,7 +42,6 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name + "_clap_name")
 
 ScavTrap& ScavTrap::operator= (const ScavTrap& n)
 {
-    // ClapTrap::operator=(n);
     this->set_name(n.get_name());
     this->set_hitpoints(n.get_hitpoints());
     this->set_energy_points(n.get_energy_points());

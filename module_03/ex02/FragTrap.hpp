@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 16:58:32 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 15:25:36 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/25 18:56:46 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class FragTrap : public ClapTrap
         FragTrap();
         FragTrap(std::string name);
         FragTrap(const FragTrap& n);
-        ~FragTrap();
+        virtual ~FragTrap();
 
         void attack(std::string const &target);
         void takeDamage(unsigned int amount);

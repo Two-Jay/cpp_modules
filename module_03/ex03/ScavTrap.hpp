@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:04 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 15:21:43 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/25 18:57:38 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ScavTrap : virtual public ClapTrap
         ScavTrap();
         ScavTrap(std::string name);
         ScavTrap(const ScavTrap& n);
-        ~ScavTrap();
+        virtual ~ScavTrap();
 
         void attack(std::string const &target);
         void takeDamage(unsigned int amount);

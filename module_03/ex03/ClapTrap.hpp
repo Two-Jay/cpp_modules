@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:42:45 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 15:20:05 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/25 18:57:25 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ClapTrap {
         ClapTrap();
         ClapTrap(std::string name);
         ClapTrap(const ClapTrap& n);
-        ~ClapTrap();
+        virtual ~ClapTrap();
 
         void attack(std::string const &target);
         void takeDamage(unsigned int amount);

@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 16:00:57 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/25 01:25:16 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/25 18:27:49 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ICharacter.hpp"
 #include <string>
 
-class ICharacter;
+class ICharacter; // circular include (전방 선언 or 인터페이스)
 
 class AMateria
 {
