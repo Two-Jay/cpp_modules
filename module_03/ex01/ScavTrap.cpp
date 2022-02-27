@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:12 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 12:36:49 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 18:48:16 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,112 +17,64 @@
 // Also, You can create an instance of ScavTrap without calling of ClapTrap("str")
 // If so, the compiler will calls ClapTrap's default constructor without parameter Implicitly.
 // But, something Implicit would be cause a problem. :)
-ScavTrap::ScavTrap() : ClapTrap("basic_clap_type")
+ScavTrap::ScavTrap() : ClapTrap::ClapTrap()
 {
-    this->set_name("basic_scav_type");
-    this->set_hitpoints(100);
-    this->set_energy_points(50);
-    this->set_attack_damage(20);    
-    std::cout << "ScavTrap <" << this->name_ << "> generated." << std::endl;
+    setName(SCAVTRAP_DEFAULT_NAME);
+    setType(SCAVTRAP_DEFAULT_TYPE);
+    setHitPoints(SCAVTRAP_DEFAULT_HP);
+    setEnergyPoints(SCAVTRAP_DEFAULT_EP);
+    setAttackDamage(SCAVTRAP_DEFAULT_DAMAGE);
+    type_tagged_logger(std::cout, "was generated.");
 };
 
-ScavTrap::~ScavTrap()
+ScavTrap::ScavTrap(std::string name) : ClapTrap::ClapTrap(name)
 {
-    std::cout << "ScavTrap <" << this->name_ << "> is removed." << std::endl;
-};
-
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name + "_clap_name")
-{
-    this->set_name(name);
-    this->set_hitpoints(100);
-    this->set_energy_points(50);
-    this->set_attack_damage(20);
-    std::cout << "ScavTrap <" << this->name_ << "> generated." << std::endl;
+    setName(name);
+    setType(SCAVTRAP_DEFAULT_TYPE);
+    setHitPoints(SCAVTRAP_DEFAULT_HP);
+    setEnergyPoints(SCAVTRAP_DEFAULT_EP);
+    setAttackDamage(SCAVTRAP_DEFAULT_DAMAGE);
+    type_tagged_logger(std::cout, "was generated.");
 }
 
-ScavTrap& ScavTrap::operator= (const ScavTrap& n)
-{
-    this->set_name(n.get_name());
-    this->set_hitpoints(n.get_hitpoints());
-    this->set_energy_points(n.get_energy_points());
-    this->set_attack_damage(n.get_attack_damage());        
-    std::cout << "ScavTrap <" << this->name_ << "> was copied." << std::endl;
-    return *this;
-}
-
-ScavTrap::ScavTrap(const ScavTrap& n) : ClapTrap(n)
+ScavTrap::ScavTrap(const ScavTrap& n) : ClapTrap::ClapTrap(n)
 {
     if (this != &n)
     {
-        this->set_name(n.get_name());
-        this->set_hitpoints(n.get_hitpoints());
-        this->set_energy_points(n.get_energy_points());
-        this->set_attack_damage(n.get_attack_damage());
+        setName(n.getName());
+        setType(n.getType());
+        setHitPoints(n.getHitPoints());
+        setEnergyPoints(n.getEnergyPoints());
+        setAttackDamage(n.getAttackDamage());
     }
-    std::cout << "ScavTrap <" << this->name_ << "> was assigned." << std::endl;
+    type_tagged_logger(std::cout, "was copied.");
 }
 
-void ScavTrap::attack(std::string const &target)
+ScavTrap::~ScavTrap()
 {
-    if (this->hitpoints_ == 0)
-    {
-        std::cout << "ScavTrap <" << this->name_ << "> was already died...." << std::endl;
-    }
-    else
-    {
-        std::cout << "ScavTrap <" << this->name_ << "> attack <" << target << ">, causing <" << this->attack_damage_ << "> points of damage!" << std::endl;
-    }
-}
+    type_tagged_logger(std::cout, "is removed.");
+    this->_type = CLAPTRAP_DEFAULT_TYPE;
+};
 
-void ScavTrap::takeDamage(unsigned int amount)
+ScavTrap& ScavTrap::operator= (const ScavTrap& n)
 {
-    if (this->hitpoints_ == 0)
-    {
-        std::cout << "ScavTrap <" << this->name_ << "> was already died...." << std::endl;
-    }
-    else if (this->hitpoints_ <= amount)
-    {
-        this->hitpoints_ = 0;
-        std::cout << "ScavTrap <" << this->name_ << "> was died after damaged by " << amount << std::endl; 
-    }
-    else
-    {
-        this->hitpoints_ -= amount;
-        std::cout << "ScavTrap <" << this->name_ << "> take a damage by "<< amount << "! (current HP : " << this->hitpoints_ << ")" << std::endl;     
-    }
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-    if (this->hitpoints_ == 0)
-    {
-        std::cout << "ScavTrap <" << this->name_ << "> was already died...." << std::endl;
-    }
-    else
-    {
-        this->hitpoints_ += amount;
-        std::cout << "ScavTrap <" << this->name_ << "> has repaired by "<< amount << "! (current HP : " << this->hitpoints_ << ")" << std::endl;
-    }
+    setName(n.getName());
+    setType(n.getType());
+    setHitPoints(n.getHitPoints());
+    setEnergyPoints(n.getEnergyPoints());
+    setAttackDamage(n.getAttackDamage());
+    type_tagged_logger(std::cout, "was assigned.");
+    return *this;
 }
 
 void ScavTrap::guardGate()
 {
-    if (this->hitpoints_ == 0)
+    if (getHitPoints() == 0)
     {
-        std::cout << "ScavTrap <" << this->name_ << "> was already died...." << std::endl;
+        type_tagged_logger(std::cout, "was already died....");
     }
     else
     {
-        std::cout << "ScavTrap <" << this->name_ << "> holds a vigil beside the gate." << std::endl;
+        type_tagged_logger(std::cout, "holds a vigil beside the gate.");
     }
-}
-
-std::string ScavTrap::get_name(void) const
-{
-    return this->name_;
-}
-
-void ScavTrap::set_name(std::string name)
-{
-    this->name_ = name;
 }

@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:42:45 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 17:22:13 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 17:31:39 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <string>
 
-# define CLAPTRAP_DEFAULT_SUFFIX "_clap_trap"
 # define CLAPTRAP_DEFAULT_NAME "basic_clap_trap"
 # define CLAPTRAP_DEFAULT_HP 10
 # define CLAPTRAP_DEFAULT_EP 10

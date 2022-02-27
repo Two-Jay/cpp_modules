@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 16:58:34 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 12:37:22 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 18:58:16 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,112 +14,64 @@
 #include <iostream>
 #include <string>
 
-FragTrap::FragTrap() : ClapTrap("basic_clap_name")
+FragTrap::FragTrap() : ClapTrap::ClapTrap()
 {
-    this->set_name("basic_frag_type");
-    this->set_hitpoints(100);
-    this->set_energy_points(100);
-    this->set_attack_damage(30);
-    std::cout << "FragTrap <" << this->name_ << "> generated." << std::endl;
+    setName(FRAGTRAP_DEFAULT_NAME);
+    setType(FRAGTRAP_DEFAULT_TYPE);
+    setHitPoints(FRAGTRAP_DEFAULT_HP);
+    setEnergyPoints(FRAGTRAP_DEFAULT_EP);
+    setAttackDamage(FRAGTRAP_DEFAULT_DAMAGE);
+    type_tagged_logger(std::cout, "was generated.");
+};
+
+FragTrap::FragTrap(std::string name) : ClapTrap::ClapTrap(name)
+{
+    setName(name);
+    setType(FRAGTRAP_DEFAULT_TYPE);
+    setHitPoints(FRAGTRAP_DEFAULT_HP);
+    setEnergyPoints(FRAGTRAP_DEFAULT_EP);
+    setAttackDamage(FRAGTRAP_DEFAULT_DAMAGE);
+    type_tagged_logger(std::cout, "was generated.");
+}
+
+FragTrap::FragTrap(const FragTrap& n) : ClapTrap::ClapTrap(n)
+{
+    if (this != &n)
+    {
+        setName(n.getName());
+        setType(n.getType());
+        setHitPoints(n.getHitPoints());
+        setEnergyPoints(n.getEnergyPoints());
+        setAttackDamage(n.getAttackDamage());
+    }
+    type_tagged_logger(std::cout, "was copied.");
 }
 
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap <" << this->name_ << "> is removed." << std::endl;
-}
-
-FragTrap::FragTrap(std::string name) : ClapTrap(name + "_clap_name")
-{
-    this->set_name(name);
-    this->set_hitpoints(100);
-    this->set_energy_points(100);
-    this->set_attack_damage(30);
-    std::cout << "FragTrap <" << this->name_ << "> generated." << std::endl;
-}
+    type_tagged_logger(std::cout, "is removed.");
+    this->_type = CLAPTRAP_DEFAULT_TYPE;
+};
 
 FragTrap& FragTrap::operator= (const FragTrap& n)
 {
-    this->set_name(n.get_name());
-    this->set_hitpoints(n.get_hitpoints());
-    this->set_energy_points(n.get_energy_points());
-    this->set_attack_damage(n.get_attack_damage());
-    std::cout << "FragTrap <" << this->name_ << "> was copied." << std::endl;
+    setName(n.getName());
+    setType(n.getType());
+    setHitPoints(n.getHitPoints());
+    setEnergyPoints(n.getEnergyPoints());
+    setAttackDamage(n.getAttackDamage());
+    type_tagged_logger(std::cout, "was assigned.");
     return *this;
-}
-
-FragTrap::FragTrap(const FragTrap& n) : ClapTrap(n)
-{
-    if (this != &n)
-    {
-        this->set_name(n.get_name());
-        this->set_hitpoints(n.get_hitpoints());
-        this->set_energy_points(n.get_energy_points());
-        this->set_attack_damage(n.get_attack_damage());        
-    }
-    std::cout << "FragTrap <" << this->name_ << "> was assigned." << std::endl;
-}
-
-void FragTrap::attack(std::string const &target)
-{
-    if (this->hitpoints_ == 0)
-    {
-        std::cout << "FragTrap <" << this->name_ << "> was already died...." << std::endl;
-    }
-    else
-    {
-        std::cout << "FragTrap <" << this->name_ << "> attack <" << target << ">, causing <" << this->attack_damage_ << "> points of damage!" << std::endl;
-    }
-}
-
-void FragTrap::takeDamage(unsigned int amount)
-{
-    if (this->hitpoints_ == 0)
-    {
-        std::cout << "FragTrap <" << this->name_ << "> was already died...." << std::endl;
-    }
-    else if (this->hitpoints_ <= amount)
-    {
-        this->hitpoints_ = 0;
-        std::cout << "FragTrap <" << this->name_ << "> was died after damaged by " << amount << std::endl; 
-    }
-    else
-    {
-        this->hitpoints_ -= amount;
-        std::cout << "FragTrap <" << this->name_ << "> take a damage by "<< amount << "! (current HP : " << this->hitpoints_ << ")" << std::endl;     
-    }
-}
-
-void FragTrap::beRepaired(unsigned int amount)
-{
-    if (this->hitpoints_ == 0)
-    {
-        std::cout << "FragTrap <" << this->name_ << "> was already died...." << std::endl;
-    }
-    else
-    {
-        this->hitpoints_ += amount;
-        std::cout << "FragTrap <" << this->name_ << "> has repaired by "<< amount << "! (current HP : " << this->hitpoints_ << ")" << std::endl;
-    }
 }
 
 void FragTrap::highFivesGuys(void)
 {
-    if (this->hitpoints_ == 0)
+    if (getHitPoints() == 0)
     {
-        std::cout << "FragTrap <" << this->name_ << "> was already died...." << std::endl;
+        type_tagged_logger(std::cout, "was already died....");
     }
     else
     {
-        std::cout << "FragTrap <" << this->name_ << "> asks you : \"Gimme five!!\" **Clap Clap** " << std::endl;
+        type_tagged_logger(std::cout, "> asks you : \"Gimme five!!\" **Clap Clap** ");
     }
-}
-
-std::string FragTrap::get_name(void) const
-{
-    return this->name_;
-}
-
-void FragTrap::set_name(std::string name)
-{
-    this->name_ = name;
 }

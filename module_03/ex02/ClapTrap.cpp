@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:42:42 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 12:35:39 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 18:47:43 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,123 +14,170 @@
 #include <iostream>
 #include <string>
 
-ClapTrap::ClapTrap() : name_("basic_clap_type"), hitpoints_(10), energy_points_(10), attack_damage_(0)
+ClapTrap::ClapTrap()
+            : _name(CLAPTRAP_DEFAULT_NAME),
+            _type(CLAPTRAP_DEFAULT_TYPE),
+            _hitPoints(CLAPTRAP_DEFAULT_HP),
+            _energyPoints(CLAPTRAP_DEFAULT_EP),
+            _attackDamage(CLAPTRAP_DEFAULT_DAMAGE)
 {
-    std::cout << "ClapTrap <" << this->name_ << "> generated." << std::endl;
+    type_tagged_logger(std::cout, "was generated.");
 }
 
-ClapTrap::ClapTrap(std::string name)  : name_(name), hitpoints_(10), energy_points_(10), attack_damage_(0)
+ClapTrap::ClapTrap(std::string name)
+            : _name(name),
+            _type(CLAPTRAP_DEFAULT_TYPE),
+            _hitPoints(CLAPTRAP_DEFAULT_HP),
+            _energyPoints(CLAPTRAP_DEFAULT_EP),
+            _attackDamage(CLAPTRAP_DEFAULT_DAMAGE)
 {
-    std::cout << "ClapTrap <" << this->name_ << "> generated." << std::endl;
+    type_tagged_logger(std::cout, "was generated.");
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "ClapTrap <" << this->name_ << "> is removed." << std::endl;
+    type_tagged_logger(std::cout, "is removed.");
 }
 
 ClapTrap::ClapTrap(const ClapTrap &n)
 {
     if (this != &n)
     {
-        this->set_name(n.get_name());
-        this->set_hitpoints(n.get_hitpoints());
-        this->set_energy_points(n.get_energy_points());
-        this->set_attack_damage(n.get_attack_damage());
+        setName(n.getName());
+        setType(n.getType());
+        setHitPoints(n.getHitPoints());
+        setEnergyPoints(n.getEnergyPoints());
+        setAttackDamage(n.getAttackDamage());
     }
-    std::cout << "ClapTrap <" << this->name_ << "> was copied." << std::endl;
+    type_tagged_logger(std::cout, "was copied.");
 }
-
 
 ClapTrap& ClapTrap::operator= (const ClapTrap& n)
 {
-    this->set_name(n.get_name());
-    this->set_hitpoints(n.get_hitpoints());
-    this->set_energy_points(n.get_energy_points());
-    this->set_attack_damage(n.get_attack_damage());
-    std::cout << "ClapTrap <" << this->name_ << "> was assigned." << std::endl;
+    setName(n.getName());
+    setType(n.getType());
+    setHitPoints(n.getHitPoints());
+    setEnergyPoints(n.getEnergyPoints());
+    setAttackDamage(n.getAttackDamage());
+    type_tagged_logger(std::cout, "was assigned.");
     return *this;
 }
 
+/////////////////////////////////////////////////
+// * ----- ClapTrap's member functions ----- * //
+/////////////////////////////////////////////////
+
 void ClapTrap::attack(std::string const &target)
 {
-    if (this->hitpoints_ == 0)
+    if (_hitPoints == 0)
     {
-        std::cout << "ClapTrap <" << this->name_ << "> was already died...." << std::endl;
+        type_tagged_logger(std::cout, "was already died....");
     }
     else
     {
-        std::cout << "ClapTrap <" << this->name_ << "> attack <" << target << ">, causing <" << this->attack_damage_ << "> points of damage!" << std::endl;
+        type_tagged_logger_nonendl(std::cout, "");
+        std::cout << "attack <" << target << ">, causing <" << _attackDamage << "> points of damage!" << std::endl;
     }
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (this->hitpoints_ == 0)
+    if (_hitPoints == 0)
     {
-        std::cout << "ClapTrap <" << this->name_ << "> was already died...." << std::endl;
+        type_tagged_logger(std::cout, "was already died....");
     }
-    else if (this->hitpoints_ <= amount)
+    else if (_hitPoints <= amount)
     {
-        this->hitpoints_ = 0;
-        std::cout << "ClapTrap <" << this->name_ << "> was died after damaged by " << amount << std::endl; 
+        _hitPoints = 0;
+        type_tagged_logger_nonendl(std::cout, "");
+        std::cout << "was died after damaged by " << amount << std::endl; 
     }
     else
     {
-        this->hitpoints_ -= amount;
-        std::cout << "ClapTrap <" << this->name_ << "> take a damage by "<< amount << "!" << std::endl;     
+        _hitPoints -= amount;
+        type_tagged_logger_nonendl(std::cout, "");
+        std::cout << "take a damage by "<< amount << "!" << std::endl;     
     }
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (this->hitpoints_ == 0)
+    if (_hitPoints == 0)
     {
-        std::cout << "ClapTrap <" << this->name_ << "> was already died...." << std::endl;
+        type_tagged_logger(std::cout, "was already died....");
     }
     else
     {
-        this->hitpoints_ += amount;
-        std::cout << "ClapTrap <" << this->name_ << "> has repaired by "<< amount << "!" << std::endl;
+        _hitPoints += amount;
+        type_tagged_logger_nonendl(std::cout, "");
+        std::cout << "has repaired by "<< amount << "!" << std::endl;
     }
 }
 
-std::string ClapTrap::get_name() const
+void ClapTrap::type_tagged_logger(std::ostream& os, std::string msg)
 {
-	return this->name_;
+    os << _type << " named <" << _name << "> " << msg << std::endl;
 }
 
-unsigned int ClapTrap::get_hitpoints() const
+void ClapTrap::type_tagged_logger_nonendl(std::ostream& os, std::string msg)
 {
-	return this->hitpoints_;
+    os << _type << " named <" << _name << "> " << msg;
 }
 
-unsigned int ClapTrap::get_energy_points() const
+///////////////////////////////////////
+// * ----- ClapTrap's getter ----- * //
+///////////////////////////////////////
+
+std::string ClapTrap::getName() const
 {
-	return this->energy_points_;
+	return _name;
 }
 
-unsigned int ClapTrap::get_attack_damage() const
+std::string ClapTrap::getType() const
 {
-	return this->attack_damage_;
+    return _type;
 }
 
-void ClapTrap::set_name(std::string name)
+unsigned int ClapTrap::getHitPoints() const
 {
-    this->name_ = name;
+	return _hitPoints;
 }
 
-void ClapTrap::set_hitpoints(unsigned int amount)
+unsigned int ClapTrap::getEnergyPoints() const
 {
-	this->hitpoints_ = amount;
+	return _energyPoints;
 }
 
-void ClapTrap::set_energy_points(unsigned int amount)
+unsigned int ClapTrap::getAttackDamage() const
 {
-	this->energy_points_ = amount;
+	return _attackDamage;
 }
 
-void ClapTrap::set_attack_damage(unsigned int amount)
+///////////////////////////////////////
+// * ----- ClapTrap's setter ----- * //
+///////////////////////////////////////
+
+void ClapTrap::setName(std::string name)
 {
-	this->attack_damage_ = amount;
+    _name = name;
+}
+
+void ClapTrap::setType(std::string type)
+{
+    _type = type;
+}
+
+void ClapTrap::setHitPoints(unsigned int amount)
+{
+	_hitPoints = amount;
+}
+
+void ClapTrap::setEnergyPoints(unsigned int amount)
+{
+	_energyPoints = amount;
+}
+
+void ClapTrap::setAttackDamage(unsigned int amount)
+{
+	_attackDamage = amount;
 }
