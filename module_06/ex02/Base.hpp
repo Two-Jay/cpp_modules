@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/28 01:32:08 by jekim            ###   ########.fr       */
+/*   Created: 2022/02/28 00:25:23 by jekim             #+#    #+#             */
+/*   Updated: 2022/02/28 01:38:04 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef BASE_HPP
+# define BASE_HPP
 
-int main(void)
-{
-    srand((unsigned int)time(NULL));
-    
-    Base *ptr = generate();
-    Base &ref = *ptr;
+#include <iostream>
+#include <stdexcept>
+#include <cstdlib>
+#include <ctime>
 
-    identify(ptr);
-    identify(ref);
-    return 0;
-}
+class Base {
+    public:
+        virtual ~Base();
+};
+
+class A : public Base {};
+
+class B : public Base {};
+
+class C : public Base {};
+
+Base * generate(void);
+void identify(Base* p);
+void identify(Base& p);
+
+#endif // BASE_HPP
+

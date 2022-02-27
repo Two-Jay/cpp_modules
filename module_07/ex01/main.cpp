@@ -6,20 +6,21 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/28 01:32:08 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/28 03:49:38 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#include "iter.hpp"
 
 int main(void)
 {
-    srand((unsigned int)time(NULL));
-    
-    Base *ptr = generate();
-    Base &ref = *ptr;
+    int  i[5] = { 1, 2, 3, 4, 5 };
+    char c[6] = "hello";
+    double seed = 42.4242;
+    double d[5] = { seed, seed * 2, seed * 3, seed * 4, seed * 5};
 
-    identify(ptr);
-    identify(ref);
+    iter(i, sizeof(i) / sizeof(*i), print);
+    iter(c, sizeof(c) / sizeof(*c), print);
+    iter(d, sizeof(d) / sizeof(*d), print);
     return 0;
 }

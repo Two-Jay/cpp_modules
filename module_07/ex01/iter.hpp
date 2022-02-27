@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/28 01:32:08 by jekim            ###   ########.fr       */
+/*   Created: 2022/02/28 02:17:13 by jekim             #+#    #+#             */
+/*   Updated: 2022/02/28 03:48:21 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-int main(void)
+#include <cstdlib> // std::size_t
+#include <iostream>
+
+template <typename T>
+void iter(T* array, std::size_t size, void (*f)(T& ele))
 {
-    srand((unsigned int)time(NULL));
-    
-    Base *ptr = generate();
-    Base &ref = *ptr;
-
-    identify(ptr);
-    identify(ref);
-    return 0;
+    for (std::size_t i = 0; i < size; i++)
+    {
+        f(array[i]);
+    }
 }
+
+template <typename T>
+void print(T& ele)
+{
+    std::cout << ele << " ";
+}
+
+#endif // ITER_HPP

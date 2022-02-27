@@ -6,18 +6,17 @@
 #    By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:26:39 by jekim             #+#    #+#              #
-#    Updated: 2022/02/27 23:13:13 by jekim            ###   ########.fr        #
+#    Updated: 2022/02/28 01:54:03 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= serialization
+NAME			= few_function
 CXX				= c++
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 RM				= rm -rf
 OBJDIR			= ./obj/
-SRCS			= main.cpp \
-					Data.cpp
+SRCS			= main.cpp 
 					
 OBJS_FILE		= $(SRCS:.cpp=.o)
 OBJS			= $(addprefix $(OBJDIR), $(OBJS_FILE))

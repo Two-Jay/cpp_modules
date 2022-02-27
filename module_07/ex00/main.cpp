@@ -6,20 +6,26 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/28 01:32:08 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/28 02:11:54 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Base.hpp"
-
-int main(void)
-{
-    srand((unsigned int)time(NULL));
-    
-    Base *ptr = generate();
-    Base &ref = *ptr;
-
-    identify(ptr);
-    identify(ref);
+#include "whatever.hpp"
+#include <iostream>
+#include <string>
+ 
+int main( void ) {
+    int a = 2;
+    int b = 3;
+    ::swap( a, b );
+    std::cout << "a = " << a << ", b = " << b << std::endl;
+    std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+    std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+    std::string c = "chaine1";
+    std::string d = "chaine2";
+    ::swap(c, d);
+    std::cout << "c = " << c << ", d = " << d << std::endl;
+    std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
     return 0;
 }
