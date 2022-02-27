@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:42:45 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 15:25:24 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 17:22:13 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 
 #include <string>
 
+# define CLAPTRAP_DEFAULT_SUFFIX "_clap_trap"
+# define CLAPTRAP_DEFAULT_NAME "basic_clap_trap"
+# define CLAPTRAP_DEFAULT_HP 10
+# define CLAPTRAP_DEFAULT_EP 10
+# define CLAPTRAP_DEFAULT_DAMAGE 0
+# define CLAPTRAP_DEFAULT_TYPE "ClapTrap"
+
 class ClapTrap {
     private :
         std::string name_;
-
-    protected :
-        unsigned int hitpoints_;
-        unsigned int energy_points_;
-        unsigned int attack_damage_;
+        std::string type_;
+        unsigned int hitPoints_;
+        unsigned int energyPoints_;
+        unsigned int attackDamage_;
 
     public :
         ClapTrap();
@@ -34,15 +40,17 @@ class ClapTrap {
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
         
-        std::string get_name() const;
-        unsigned int get_hitpoints() const;
-        unsigned int get_energy_points() const;
-        unsigned int get_attack_damage() const;
+        std::string getName() const;
+        std::string getType() const;
+        unsigned int getHitPoints() const;
+        unsigned int getEnergyPoints() const;
+        unsigned int getAttackDamage() const;
 
-        void set_name(std::string name);
-        void set_hitpoints(unsigned int amount);
-        void set_energy_points(unsigned int amount);
-        void set_attack_damage(unsigned int amount);
+        void setName(std::string name);
+        void setType(std::string type);
+        void setHitPoints(unsigned int amount);
+        void setEnergyPoints(unsigned int amount);
+        void setAttackDamage(unsigned int amount);
 
         ClapTrap& operator= (const ClapTrap& n);
 };
