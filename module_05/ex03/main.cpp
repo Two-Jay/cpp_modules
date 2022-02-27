@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/26 11:10:33 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 03:51:42 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int main()
 
         me.signForm(*ptr1);
         prs.executeForm(*ptr1);
-    
         me.signForm(*ptr2);
         prs.executeForm(*ptr2);
         delete ptr;

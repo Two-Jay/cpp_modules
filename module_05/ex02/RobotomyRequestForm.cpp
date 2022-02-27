@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 19:00:30 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/25 21:15:04 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 02:44:26 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,17 @@
 #include <cstdlib>
 #include <ctime>
 
-int get_random_half(void)
+static int get_random_number(void)
 {
-    srand((unsigned int)time(NULL));
-    return rand() % 2;
+    static int seed;
+    if (seed == 0)
+        seed = time(NULL);
+    srand(seed);
+    int ret = rand();
+    seed = ret << (ret / 2 % 32) >> (ret % 13);
+    return ret;
 }
+
 
 RobotomyRequestForm::RobotomyRequestForm() : Form("Basic", GRADE_TO_SIGN_ROBO, GRADE_TO_EXC_ROBO)
 {
@@ -42,7 +48,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    int coin = get_random_half();
+    int coin = get_random_number() % 2;
     
     if (coin == 1)
     {

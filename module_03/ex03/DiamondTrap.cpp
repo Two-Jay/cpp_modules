@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 20:46:55 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 15:20:52 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 12:44:56 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 
-DiamondTrap::DiamondTrap() : ClapTrap(), FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
 {
     this->set_name("basic");
     this->set_hitpoints(FragTrap::get_hitpoints());
@@ -34,10 +34,14 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Frag
 
 DiamondTrap::DiamondTrap(const DiamondTrap& n)
 {
-    this->set_name(n.get_name());
-    this->set_hitpoints(n.get_hitpoints());
-    this->set_attack_damage(n.get_attack_damage());
-    this->set_energy_points(n.get_energy_points());
+    if (this != &n)
+    {
+        this->set_name(n.get_name());
+        this->set_hitpoints(n.get_hitpoints());
+        this->set_attack_damage(n.get_attack_damage());
+        this->set_energy_points(n.get_energy_points());        
+    }
+
     std::cout << "DiamondTrap <" << this->get_name() << "> was copied." << std::endl;
 }
 

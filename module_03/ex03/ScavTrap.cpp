@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:12 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 15:21:54 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 12:41:28 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,24 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name + "_clap_name")
 
 ScavTrap& ScavTrap::operator= (const ScavTrap& n)
 {
-    // ClapTrap::operator=(n);
     this->set_name(n.get_name());
     this->set_hitpoints(n.get_hitpoints());
     this->set_energy_points(n.get_energy_points());
-    this->set_attack_damage(n.get_attack_damage());
+    this->set_attack_damage(n.get_attack_damage());        
+    std::cout << "ScavTrap <" << this->name_ << "> was copied." << std::endl;
     return *this;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& n) : ClapTrap(n)
 {
-    this->set_name(n.get_name());
-    this->set_hitpoints(n.get_hitpoints());
-    this->set_energy_points(n.get_energy_points());
-    this->set_attack_damage(n.get_attack_damage());
+    if (this != &n)
+    {
+        this->set_name(n.get_name());
+        this->set_hitpoints(n.get_hitpoints());
+        this->set_energy_points(n.get_energy_points());
+        this->set_attack_damage(n.get_attack_damage());
+    }
+    std::cout << "ScavTrap <" << this->name_ << "> was assigned." << std::endl;
 }
 
 void ScavTrap::attack(std::string const &target)

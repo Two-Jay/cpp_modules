@@ -66,7 +66,9 @@
         "deque": "cpp",
         "fstream": "cpp",
         "stack": "cpp",
-        "__functional_03": "cpp"
+        "__functional_03": "cpp",
+        "__memory": "cpp",
+        "filesystem": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

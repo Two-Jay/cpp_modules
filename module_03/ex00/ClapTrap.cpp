@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:42:42 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/21 15:24:35 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 12:24:00 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,13 @@
 #include <iostream>
 #include <string>
 
-ClapTrap::ClapTrap()
+ClapTrap::ClapTrap() : name_("basic_clap_type"), hitpoints_(10), energy_points_(10), attack_damage_(0)
 {
-    this->set_name("basic_clap_type");
-    this->set_hitpoints(10);
-    this->set_energy_points(10);
-    this->set_attack_damage(0);
     std::cout << "ClapTrap <" << this->name_ << "> generated." << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name)  : name_(name), hitpoints_(10), energy_points_(10), attack_damage_(0)
 {
-    this->set_name(name);
-    this->set_hitpoints(10);
-    this->set_energy_points(10);
-    this->set_attack_damage(0);
     std::cout << "ClapTrap <" << this->name_ << "> generated." << std::endl;
 }
 
@@ -39,10 +31,13 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap &n)
 {
-    this->set_name(n.get_name());
-    this->set_hitpoints(n.get_hitpoints());
-    this->set_energy_points(n.get_energy_points());
-    this->set_attack_damage(n.get_attack_damage());
+    if (this != &n)
+    {
+        this->set_name(n.get_name());
+        this->set_hitpoints(n.get_hitpoints());
+        this->set_energy_points(n.get_energy_points());
+        this->set_attack_damage(n.get_attack_damage());
+    }
     std::cout << "ClapTrap <" << this->name_ << "> was copied." << std::endl;
 }
 

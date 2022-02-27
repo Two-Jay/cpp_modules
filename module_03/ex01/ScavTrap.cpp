@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:12 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/26 17:00:57 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 12:36:49 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap() : ClapTrap("basic_clap_type")
     this->set_name("basic_scav_type");
     this->set_hitpoints(100);
     this->set_energy_points(50);
-    this->set_attack_damage(20);
+    this->set_attack_damage(20);    
     std::cout << "ScavTrap <" << this->name_ << "> generated." << std::endl;
 };
 
@@ -45,16 +45,21 @@ ScavTrap& ScavTrap::operator= (const ScavTrap& n)
     this->set_name(n.get_name());
     this->set_hitpoints(n.get_hitpoints());
     this->set_energy_points(n.get_energy_points());
-    this->set_attack_damage(n.get_attack_damage());
+    this->set_attack_damage(n.get_attack_damage());        
+    std::cout << "ScavTrap <" << this->name_ << "> was copied." << std::endl;
     return *this;
 }
 
 ScavTrap::ScavTrap(const ScavTrap& n) : ClapTrap(n)
 {
-    this->set_name(n.get_name());
-    this->set_hitpoints(n.get_hitpoints());
-    this->set_energy_points(n.get_energy_points());
-    this->set_attack_damage(n.get_attack_damage());
+    if (this != &n)
+    {
+        this->set_name(n.get_name());
+        this->set_hitpoints(n.get_hitpoints());
+        this->set_energy_points(n.get_energy_points());
+        this->set_attack_damage(n.get_attack_damage());
+    }
+    std::cout << "ScavTrap <" << this->name_ << "> was assigned." << std::endl;
 }
 
 void ScavTrap::attack(std::string const &target)
