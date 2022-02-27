@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:04 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 18:11:43 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 20:13:35 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ class ScavTrap : public ClapTrap
         virtual ~ScavTrap(); // You should call Child class with virtual keyword to call Parent class's destructor. 
 
         void guardGate();
-
+        
+        void attack(std::string const &target);
         ScavTrap& operator= (const ScavTrap& n);
 };
 

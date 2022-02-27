@@ -6,21 +6,25 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:00:10 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 19:01:49 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 19:57:19 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DIAMONDTRAP_HPP
 # define DIAMONDTRAP_HPP
 
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 #include <string>
+
+# define DIAMONDTRAP_DEFAULT_SUFFIX "_diamond_trap"
+# define DIAMONDTRAP_DEFAULT_NAME "basic_diamond_trap"
+# define DIAMONDTRAP_DEFAULT_TYPE "DiamondTrap"
 
 class DiamondTrap : public FragTrap, public ScavTrap
 {
     private :
-        std::string name_;
+        std::string _name;
 
     public :
         DiamondTrap();
@@ -28,12 +32,15 @@ class DiamondTrap : public FragTrap, public ScavTrap
         DiamondTrap(const DiamondTrap& n);
         virtual ~DiamondTrap();
 
-        void attack(std::string const &target);
+        std::string getName() const;
+        void setName(std::string name);
+        virtual void attack(std::string const &target);
         void whoAmI();
-        std::string get_name(void) const;
-        void set_name(std::string name);
 
         DiamondTrap& operator=(const DiamondTrap& n);
+
+        virtual void type_tagged_logger_nonendl(std::ostream& os, std::string msg);
+        virtual void type_tagged_logger(std::ostream &os, std::string msg);
 };
 
 #endif

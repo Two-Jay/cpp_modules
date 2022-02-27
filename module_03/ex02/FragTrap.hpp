@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 16:58:32 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 18:55:39 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 20:14:31 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class FragTrap : public ClapTrap
         virtual ~FragTrap(); // You should call Child class with virtual keyword to call Parent class's destructor. 
 
         void highFivesGuys(void);
-
+        void attack(std::string const &target);
         FragTrap& operator= (const FragTrap& n);
 };
 

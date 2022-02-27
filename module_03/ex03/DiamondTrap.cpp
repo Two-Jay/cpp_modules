@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 20:46:55 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 12:44:56 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 20:23:07 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,50 +14,46 @@
 #include <iostream>
 #include <string>
 
-DiamondTrap::DiamondTrap() : FragTrap(), ScavTrap()
+DiamondTrap::DiamondTrap()
+    :  FragTrap(), ScavTrap()
 {
-    this->set_name("basic");
-    this->set_hitpoints(FragTrap::get_hitpoints());
-    this->set_attack_damage(FragTrap::get_attack_damage());
-    this->set_energy_points(ScavTrap::get_energy_points());
-    std::cout << "DiamondTrap <" << this->get_name() << "> generated." << std::endl;
-}
+    setName(DIAMONDTRAP_DEFAULT_NAME);
+    setType(DIAMONDTRAP_DEFAULT_TYPE);
+    setHitPoints(FRAGTRAP_DEFAULT_HP);
+    setEnergyPoints(SCAVTRAP_DEFAULT_EP);
+    setAttackDamage(FRAGTRAP_DEFAULT_DAMAGE);
+    type_tagged_logger(std::cout, "was generated.");
+};
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), FragTrap(name + "_frag_name"), ScavTrap(name + "_scav_name")
+DiamondTrap::DiamondTrap(std::string name)
+    :  FragTrap(), ScavTrap()
 {
-    this->set_name(name);
-    this->set_hitpoints(FragTrap::get_hitpoints());
-    this->set_attack_damage(FragTrap::get_attack_damage());
-    this->set_energy_points(ScavTrap::get_energy_points());
-    std::cout << "DiamondTrap <" << this->get_name() << "> generated." << std::endl;
+    setName(name);
+    ClapTrap::setName(name + CLAPTRAP_DEFAULT_SUFFIX);
+    setType(DIAMONDTRAP_DEFAULT_TYPE);
+    setHitPoints(FRAGTRAP_DEFAULT_HP);
+    setEnergyPoints(SCAVTRAP_DEFAULT_EP);
+    setAttackDamage(FRAGTRAP_DEFAULT_DAMAGE);
+    type_tagged_logger(std::cout, "was generated.");
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& n)
 {
     if (this != &n)
     {
-        this->set_name(n.get_name());
-        this->set_hitpoints(n.get_hitpoints());
-        this->set_attack_damage(n.get_attack_damage());
-        this->set_energy_points(n.get_energy_points());        
+        setName(n.getName());
+        setType(n.getType());
+        setHitPoints(n.getHitPoints());
+        setEnergyPoints(n.getEnergyPoints());
+        setAttackDamage(n.getAttackDamage());
     }
-
-    std::cout << "DiamondTrap <" << this->get_name() << "> was copied." << std::endl;
-}
-
-DiamondTrap& DiamondTrap::operator= (const DiamondTrap& n)
-{
-    this->set_name(n.get_name());
-    this->set_hitpoints(n.get_hitpoints());
-    this->set_attack_damage(n.get_attack_damage());
-    this->set_energy_points(n.get_energy_points());
-    std::cout << "DiamondTrap <" << this->get_name() << "> was assigned." << std::endl;    
-    return *this;
+    type_tagged_logger(std::cout, "was copied.");
 }
 
 DiamondTrap::~DiamondTrap()
 {
-    std::cout << "DiamondTrap <" << this->get_name() << "> is removed." << std::endl;    
+    type_tagged_logger(std::cout, "is removed.");
+    this->_type = SCAVTRAP_DEFAULT_TYPE;
 }
 
 void DiamondTrap::attack(std::string const &target)
@@ -67,15 +63,25 @@ void DiamondTrap::attack(std::string const &target)
 
 void DiamondTrap::whoAmI()
 {
-    std::cout << "DiamondTrap : I'm " << DiamondTrap::get_name() << " and my ancestor is " << ClapTrap::get_name() << std::endl;    
+    std::cout << "DiamondTrap : I'm " << this->getName() << " and my ancestor is " << ClapTrap::getName() << std::endl;
 }
 
-std::string DiamondTrap::get_name(void) const
+std::string DiamondTrap::getName() const
 {
-    return this->name_;
+    return DiamondTrap::_name;
 }
 
-void DiamondTrap::set_name(std::string name)
+void DiamondTrap::setName(std::string name)
 {
-    this->name_ = name;
+    _name = name;
+}
+
+void DiamondTrap::type_tagged_logger(std::ostream& os, std::string msg)
+{
+    os << DiamondTrap::_type << " named <" << DiamondTrap::_name << "> " << msg << std::endl;
+}
+
+void DiamondTrap::type_tagged_logger_nonendl(std::ostream& os, std::string msg)
+{
+    os << DiamondTrap::_type << " named <" << DiamondTrap::_name << "> " << msg;
 }

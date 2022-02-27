@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 12:42:42 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 17:22:52 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 19:35:20 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     else
     {
         this->hitPoints_ += amount;
-        std::cout << this->type_ << "<" << this->name_ << "> has repaired by "<< amount << "!" << std::endl;
+        std::cout << "has repaired by "<< amount << "! (current HP is " << getHitPoints() << ")" << std::endl;
     }
 }
 

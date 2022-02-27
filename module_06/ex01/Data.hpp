@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 21:38:18 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 03:58:23 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 13:34:34 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ class Data
         Data& operator= (const Data &n);
 };
 
-
-std::ostream operator<< (std::ostream& os, const Data& n);
+std::ostream& operator<< (std::ostream& os, const Data& n);
+std::ostream& operator<< (std::ostream& os, uintptr_t& n);
 uintptr_t serialize(Data* ptr);
 Data* deserialize(uintptr_t raw);
 

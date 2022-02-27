@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/19 02:20:13 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 12:45:42 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 19:36:23 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,13 @@ int main( void ) {
             DiamondTrap diamond("Hussam");
             
             diamond.attack("khalid");
+            diamond.beRepaired(100);
+            diamond.takeDamage(150);
             diamond.highFivesGuys();
             diamond.guardGate();
             diamond.whoAmI();
+            diamond.takeDamage(999);
+            diamond.beRepaired(100);
         }
     std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "" << std::endl << std::endl << std::setfill(' ');
 

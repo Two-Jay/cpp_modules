@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:12 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 18:48:16 by jekim            ###   ########.fr       */
+/*   Updated: 2022/02/27 20:11:25 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,9 @@ void ScavTrap::guardGate()
     {
         type_tagged_logger(std::cout, "holds a vigil beside the gate.");
     }
+}
+
+void ScavTrap::attack(std::string const &target)
+{
+    ClapTrap::attack(target);
 }
