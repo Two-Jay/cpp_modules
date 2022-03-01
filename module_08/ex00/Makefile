@@ -6,27 +6,20 @@
 #    By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:26:39 by jekim             #+#    #+#              #
-#    Updated: 2022/03/01 11:35:54 by jekim            ###   ########.fr        #
+#    Updated: 2022/03/02 01:45:56 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Lets_get_28B
+NAME			= easyfind
 CXX				= c++
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 
 RM				= rm -rf
 OBJDIR			= ./obj/
-SRCS			= main.cpp \
-					Form.cpp \
-					Bureaucrat.cpp \
-					PresidentialPardonForm.cpp \
-					RobotomyRequestForm.cpp \
-					ShrubberyCreationForm.cpp
+SRCS			= main.cpp
 					
 OBJS_FILE		= $(SRCS:.cpp=.o)
 OBJS			= $(addprefix $(OBJDIR), $(OBJS_FILE))
-
-SHRUBBERY_FILE	= *_shrubbery
 
 all:			objd_build	$(NAME)
 
@@ -45,7 +38,6 @@ clean:
 				@$(RM) $(OBJS)
 
 fclean:			clean
-				@$(RM) $(SHRUBBERY_FILE)
 				@$(RM) $(NAME)
 				@echo "\033[0;91m* $(NAME) was removed *\033[0m"
 

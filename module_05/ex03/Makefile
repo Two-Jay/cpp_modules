@@ -6,7 +6,7 @@
 #    By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:26:39 by jekim             #+#    #+#              #
-#    Updated: 2022/03/01 11:25:06 by jekim            ###   ########.fr        #
+#    Updated: 2022/03/01 11:36:11 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ SRCS			= main.cpp \
 OBJS_FILE		= $(SRCS:.cpp=.o)
 OBJS			= $(addprefix $(OBJDIR), $(OBJS_FILE))
 
+SHRUBBERY_FILE	= *_shrubbery
+
 all:			objd_build	$(NAME)
 
 $(NAME):		$(OBJS)
@@ -44,7 +46,7 @@ clean:
 				@$(RM) $(OBJS)
 
 fclean:			clean
-				@$(RM) *_shrubbery
+				@$(RM) $(SHRUBBERY_FILE)
 				@$(RM) $(NAME)
 				@echo "\033[0;91m* $(NAME) was removed *\033[0m"
 

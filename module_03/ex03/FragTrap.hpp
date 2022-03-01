@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 16:58:32 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 20:20:32 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/01 23:50:56 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 
 class FragTrap : virtual public ClapTrap
 {
+    private :
+        std::string _type;
+
     public :
         FragTrap();
         FragTrap(std::string name);

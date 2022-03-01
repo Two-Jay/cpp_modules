@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 18:00:10 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 19:57:19 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/01 22:50:16 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class DiamondTrap : public FragTrap, public ScavTrap
 {
     private :
         std::string _name;
+        std::string _type;
 
     public :
         DiamondTrap();

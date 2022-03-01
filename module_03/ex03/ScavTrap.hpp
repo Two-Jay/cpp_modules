@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 14:03:04 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 20:20:31 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/01 23:50:44 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 
 class ScavTrap : virtual public ClapTrap
 {
+    private :
+        std::string _type;
+
     public :
         ScavTrap();
         ScavTrap(std::string name);

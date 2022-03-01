@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 16:58:34 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 20:20:32 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/01 22:51:57 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,14 @@ void FragTrap::highFivesGuys(void)
     {
         type_tagged_logger(std::cout, "> asks you : \"Gimme five!!\" **Clap Clap** ");
     }
+}
+
+void FragTrap::type_tagged_logger(std::ostream& os, std::string msg)
+{
+    os << FragTrap::_type << " named <" << FragTrap::_name << "> " << msg << std::endl;
+}
+
+void FragTrap::type_tagged_logger_nonendl(std::ostream& os, std::string msg)
+{
+    os << FragTrap::_type << " named <" << FragTrap::_name << "> " << msg;
 }
