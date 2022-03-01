@@ -6,11 +6,13 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:53:19 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/25 21:32:03 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/01 11:34:28 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+#include <iostream>
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() : Form("Basic", GRADE_TO_SIGN, GRADE_TO_EXC)
 {
@@ -32,22 +34,36 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
 
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
-{
-    std::cout << "[ <" << executor.getName() << "> get a tree !]" << std::endl;
-    std::string tree =      "         %%%,%%%%%%%\n"
-                            "          ,'%% \\-*%%%%%%%\n"
-                            "    ;%%%%%*%   _%%%%\n"
-                            "     ,%%%       \\(_.*%%%%.\n"
-                            "     % *%%, ,%%%%*( %%%*%'\n"
-                            "   %^     ,*%%% )\\|,%%*%,_\n"
-                            "        *%    \\/ #).-\"*%%*\n"
-                            "             _.) ,/ *%,\n"
-                            "     _________/)#(_____________\n";
-    std::cout << tree;
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+ 
+    std::string file_name= executor.getName() + "_shrubbery";
+    std::ofstream file;
+    file.open(file_name, std::ios::trunc);
+    try {
+        if (!file.is_open())
+        {
+            throw (FileOpenError());
+        }
+        std::string tree =      "         %%%,%%%%%%%\n"
+                                "          ,'%% \\-*%%%%%%%\n"
+                                "    ;%%%%%*%   _%%%%\n"
+                                "     ,%%%       \\(_.*%%%%.\n"
+                                "     % *%%, ,%%%%*( %%%*%'\n"
+                                "   %^     ,*%%% )\\|,%%*%,_\n"
+                                "        *%    \\/ #).-\"*%%*\n"
+                                "             _.) ,/ *%,\n"
+                                "     _________/)#(_____________\n";
+        file << tree;
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator= (const ShrubberyCreationForm& n)
 {
     return (*(dynamic_cast<ShrubberyCreationForm*>(&(Form::operator=(n)))));
+}
+
+const char *ShrubberyCreationForm::FileOpenError::what(void) const throw() {
+    return "Error : file isn't opened.";
 }

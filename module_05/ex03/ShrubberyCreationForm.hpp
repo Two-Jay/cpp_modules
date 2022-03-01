@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:53:22 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/25 21:29:34 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/01 11:34:29 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@ class ShrubberyCreationForm : public Form
         virtual ~ShrubberyCreationForm();
 
         virtual void execute(Bureaucrat const & executor) const;
+        
+        class FileOpenError : public std::exception {
+            const char *what(void) const throw();
+        };
 
         ShrubberyCreationForm& operator= (const ShrubberyCreationForm& n);    
 };
