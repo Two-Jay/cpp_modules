@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/20 20:46:55 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 20:30:35 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/02 23:25:03 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,20 @@ DiamondTrap::~DiamondTrap()
 {
     type_tagged_logger(std::cout, "is removed.");
     this->_type = SCAVTRAP_DEFAULT_TYPE;
+}
+
+DiamondTrap& DiamondTrap::operator= (const DiamondTrap& n)
+{
+    if (this != &n)
+    {
+        setName(n.getName());
+        setType(n.getType());
+        setHitPoints(n.getHitPoints());
+        setEnergyPoints(n.getEnergyPoints());
+        setAttackDamage(n.getAttackDamage());
+    }
+    type_tagged_logger(std::cout, "was assigned.");
+    return *this;
 }
 
 void DiamondTrap::attack(std::string const &target)

@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/02 20:35:27 by jekim            ###   ########.fr       */
+/*   Created: 2022/03/02 12:53:27 by jekim             #+#    #+#             */
+/*   Updated: 2022/03/02 20:34:35 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Span.hpp"
+#include <Span.hpp>
 
-int main()
+Span::Span() {};
+
+Span::Span(unsigned int param)
 {
-    Span sp = Span(5);
-    sp.addNumber(5);
-    sp.addNumber(3);
-    sp.addNumber(17);
-    sp.addNumber(9);
-    sp.addNumber(11);
-    // std::cout << sp.shortestSpan() << std::endl;
-    // std::cout << sp.longestSpan() << std::endl;
+    this->storage = std::array<int, param>; 
+}
+
+void Span::addNumber(unsigned int n)
+{
+    if (this->size() == this->storage.capacity())
+    {
+        std::cout << "Error !" << std::endl;
+        return ;        
+    }
+    this->storage.push_back(n);
+    this->size++;
+}
+
+std::size_t Span::size(void)
+{
+    return this->storage.size();
 }
