@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 23:23:26 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 23:16:02 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main()
 {
-    std::string name = "아!! 터치하지 말라구!!";
-    std::string uploader = "개발자 라라";
-    std::string url = "https://www.youtube.com/watch?v=aMALA9eIl-M&ab_channel=%EA%B0%9C%EB%B0%9C%EC%9E%90%EB%9D%BC%EB%9D%BC";
+    std::string name = "Nyan Cat [original]";
+    std::string uploader = "Nyan Cat";
+    std::string url = "https://www.youtube.com/watch?v=QH2-TGUlwu4&t=70s&ab_channel=NyanCat";
     
     Data video(name, uploader, url);
     uintptr_t ptr;

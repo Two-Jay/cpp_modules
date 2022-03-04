@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:53:19 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/01 11:34:28 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 17:13:28 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,10 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
- 
-    std::string file_name= executor.getName() + "_shrubbery";
-    std::ofstream file;
-    file.open(file_name, std::ios::trunc);
     try {
+        std::string file_name= executor.getName() + "_shrubbery";
+        std::ofstream file;
+        file.open(file_name, std::ios::trunc);
         if (!file.is_open())
         {
             throw (FileOpenError());

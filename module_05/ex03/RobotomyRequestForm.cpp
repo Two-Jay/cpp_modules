@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 19:00:30 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/04 15:07:21 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 17:13:13 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
     
     if (coin == 1)
     {
-        std::cout << "[ ㄴㅁㄱ Bureaucrat < " << executor.getName() << " > has been robotomized! ㄴㅁㄱ ]" << std::endl;
+        std::cout << "[ Bureaucrat < " << executor.getName() << " > has been robotomized! ]" << std::endl;
     }
     else
     {

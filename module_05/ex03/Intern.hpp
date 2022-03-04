@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:44:08 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/26 10:32:41 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 17:11:56 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@
 
 
 class Intern {
+    private :
+        Form* makePresidentialPardonForm(std::string &target);
+        Form* makeRobotomyRequestForm(std::string &target);
+        Form* makeShrubberyCreationForm(std::string &target);
+
     public :
         Intern();
         Intern(const Intern &n);
