@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 11:24:01 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/26 21:28:19 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 15:26:07 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@
 
 class Converter {
     private :
-        double value; // char, int, float, double 중에서는 double이 제일 사이즈가 큼;
-        Converter(); // prohibit to create the class without params
+        double value;
+        Converter();
         bool printToInt(std::ostream &os) const;
         bool printToChar(std::ostream &os) const;
         bool printToFloat(std::ostream &os) const;
@@ -40,12 +40,6 @@ class Converter {
 
         double getValue() const;
         void print_converted(void);
-
-        class BadInput : public std::exception
-        {
-            const char *what(void) const throw();
-        };
-
         Converter& operator=(const Converter& n);
 };
 
