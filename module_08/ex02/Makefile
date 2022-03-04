@@ -6,11 +6,11 @@
 #    By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:26:39 by jekim             #+#    #+#              #
-#    Updated: 2022/02/28 16:32:46 by jekim            ###   ########.fr        #
+#    Updated: 2022/03/03 02:14:07 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Array
+NAME			= MutantStack
 CXX				= c++
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 

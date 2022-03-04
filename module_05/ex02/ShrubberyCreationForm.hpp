@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 17:53:22 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/01 11:34:33 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 14:53:07 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "Form.hpp"
 
-# define GRADE_TO_SIGN 145
-# define GRADE_TO_EXC 137
+# define GRADE_TO_SIGN_SHRB 145
+# define GRADE_TO_EXC_SHRB 137
 
 class ShrubberyCreationForm : public Form
 {

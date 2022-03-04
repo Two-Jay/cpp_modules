@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 14:01:39 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/26 10:50:26 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 15:07:36 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Bureaucrat;
 
 class Form
 {
-    private :
+    protected :
         const std::string _name;
         const int _grade_to_sign;
         const int _grade_to_excute;

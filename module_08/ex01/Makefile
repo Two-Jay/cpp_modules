@@ -6,11 +6,11 @@
 #    By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:26:39 by jekim             #+#    #+#              #
-#    Updated: 2022/03/02 20:35:35 by jekim            ###   ########.fr        #
+#    Updated: 2022/03/03 01:06:57 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME			= Array
+NAME			= Span
 CXX				= c++
 CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
 

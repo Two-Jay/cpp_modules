@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 21:50:24 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/26 11:11:40 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 15:14:48 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,20 @@ Form* Intern::makeForm(std::string form_name, std::string target)
         switch (i)
         {
             case 0:
+            {
+                std::cout << "Intern creates " << list[i] << "." << std::endl;
                 return new PresidentialPardonForm(target);
+            }
             case 1:
+            {
+                std::cout << "Intern creates " << list[i] << "." << std::endl;
                 return new RobotomyRequestForm(target);
+            }
             case 2:
+            {
+                std::cout << "Intern creates " << list[i] << "." << std::endl;
                 return new ShrubberyCreationForm(target);
+            }
             default:
                 throw (NoMatchFormName());
         }

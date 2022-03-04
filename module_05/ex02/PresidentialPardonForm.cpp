@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 18:28:21 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/25 21:14:23 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 15:00:57 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    std::cout << "[!!!  <" << executor.getName() << "> has been pardoned by Zafod Beeblebrox  !!!]" << std::endl;
+    std::cout << "[ <" << executor.getName() << "> has been pardoned by Zafod Beeblebrox ]" << std::endl;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator= (const PresidentialPardonForm& n)

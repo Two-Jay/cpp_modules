@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:43:38 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/25 12:43:03 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 14:45:04 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ Bureaucrat::~Bureaucrat()
 
 Bureaucrat& Bureaucrat::operator= (const Bureaucrat& n)
 {
-    if (this != &n)
-    {
-    }
+    std::string& ref = const_cast<std::string &>(this->_name);
+    ref = n.getName();
+    this->_grade = n.getGrade();
     return *this;
 }
 
@@ -67,7 +67,6 @@ int Bureaucrat::getGrade(void) const
     return this->_grade;
 }
 
-// 함수 자체를 const로 설정하면 ...
 const std::string& Bureaucrat::getName(void) const
 {
     return this->_name;
@@ -81,18 +80,18 @@ void Bureaucrat::setName(std::string &name)
 
 void Bureaucrat::increaseGrade(void)
 {
-    if (this->_grade == 1)
+    if (this->_grade == GRADE_MAX)
         throw (GradeTooHighException());
-    std::cout << "increased!" << std::endl;
-    this->_grade++;
+    this->_grade--;
+    std::cout << this->_name << "'s grade is increased by 1 ( current grade : " << this->_grade << ")"<< std::endl;
 }
 
 void Bureaucrat::decreaseGrade(void)
 {
-    if (this->_grade == 150)
+    if (this->_grade == GRADE_MIN)
         throw (GradeTooLowException());
-    std::cout << "decreased!" << std::endl;
-    this->_grade--;
+    this->_grade++;
+    std::cout << this->_name << "'s grade is decreased by 1 ( current grade : " << this->_grade << " )"<< std::endl;
 }
 
 std::ostream& operator<< (std::ostream& os, const Bureaucrat& n)

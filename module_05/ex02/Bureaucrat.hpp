@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:43:41 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/25 20:52:46 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 15:03:11 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Form;
 
 class Bureaucrat
 {
-    protected :
+    private :
         const std::string _name;
         int _grade;
 
@@ -37,7 +37,7 @@ class Bureaucrat
         ~Bureaucrat();
 
         void setName(std::string &name);
-        const std::string& getName(void) const;
+        const std::string getName(void) const;
         int getGrade(void) const;
         void increaseGrade(void);
         void decreaseGrade(void);

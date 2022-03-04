@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/25 21:32:52 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 15:05:27 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@
 int main()
 {
     try {
-        // PresidentialPardonForm A = PresidentialPardonForm("Zarford");
-        // RobotomyRequestForm A = RobotomyRequestForm("Nyam");
+        PresidentialPardonForm C = PresidentialPardonForm("Zarford");
+        RobotomyRequestForm B = RobotomyRequestForm("Nyam");
         ShrubberyCreationForm A = ShrubberyCreationForm("Nyam");
-        Bureaucrat me = Bureaucrat("me", 30);
-        Bureaucrat hm = Bureaucrat("hm", 20);
-        Bureaucrat hhm = Bureaucrat("hhm", 4);
+        Bureaucrat me = Bureaucrat("me", 1);
         std::string input;
 
         me.signForm(A);
+        me.signForm(B);
+        me.signForm(C);
 
-        std::cout << hm << std::endl;
-        std::cout << hhm << std::endl;
         std::cout << A << std::endl;
+        std::cout << B << std::endl;
+        std::cout << C << std::endl;
 
         me.executeForm(A);
+        me.executeForm(B);
+        me.executeForm(C);
     }
     catch (std::exception& e){
         std::cout << e.what() << std::endl;
