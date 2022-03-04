@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 11:24:01 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/04 15:26:07 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 23:25:17 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Converter {
         bool printToDouble(std::ostream &os) const;
 
     public :
-        Converter(const char *char_value);
+        Converter(std::string &input);
         Converter(const Converter& n);
         ~Converter();
 

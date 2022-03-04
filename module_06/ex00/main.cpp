@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/02/27 21:34:10 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 23:24:42 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int main(int argc, char **argv)
 {
     if (argc == 2)
     {
-        Converter c = Converter(argv[1]);
+        std::string input = argv[1];
+        Converter c = Converter(input);
 
         c.print_converted();
     }

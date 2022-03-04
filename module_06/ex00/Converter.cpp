@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/26 11:24:03 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/04 15:34:33 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/04 23:28:55 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,14 @@
 #include <string>
 
 Converter::Converter() {}
-Converter::Converter(const char *argv) : value(0.0)
+Converter::Converter(std::string &input)
 {
     char *pEnd = NULL;
-    this->value = strtod(argv, &pEnd);
+    this->value = strtod(input.c_str(), &pEnd);
+    if (pEnd != '\0' && (input.length() == 1 && *pEnd == input[0]))
+    {
+        this->value = *pEnd;
+    }
 }
 
 Converter::~Converter() {}
