@@ -25,7 +25,7 @@ Intern& Intern::operator=(const Intern &n) {
 Form* Intern::makePresidentialPardonForm(std::string &target)
 {
     std::cout << "Intern creates PresidentialPardonForm." << std::endl;
-    return new PresidentialPardonForm(target);    
+    return new PresidentialPardonForm(target);
 }
 Form* Intern::makeRobotomyRequestForm(std::string &target)
 {

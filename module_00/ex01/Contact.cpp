@@ -1,8 +1,6 @@
 #include "Contact.hpp"
 
-Contact::Contact()
-{
-};
+Contact::Contact() {};
 
 void Contact::show_data(void)
 {
