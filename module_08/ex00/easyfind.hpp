@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 00:46:53 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 03:07:04 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 15:22:03 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 
 template <typename C>
 typename C::iterator easyfind(C& container, int value) {
-    typename C::iterator ret = std::find(std::begin(container), std::end(container), value);
-    if (ret == std::end(container))
+    typename C::iterator ret = std::find(container.begin(), container.end(), value);
+    if (ret == container.end())
     {
-        std::string err = "Error_Function_[easyfind] : " + std::to_string(value) + " is not found in Container";
+        std::string err = "Error_Function_[easyfind] : not found in Container";
         throw (std::runtime_error(err));
     }
     return ret;

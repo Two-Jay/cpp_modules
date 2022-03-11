@@ -6,7 +6,7 @@
 #    By: jekim <arabi1549@naver.com>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/21 20:26:39 by jekim             #+#    #+#              #
-#    Updated: 2022/03/11 14:38:30 by jekim            ###   ########.fr        #
+#    Updated: 2022/03/11 15:17:16 by jekim            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ RM				= rm -rf
 OBJDIR			= ./obj/
 SRCS			= main.cpp \
 					Span.cpp
-					
+
 OBJS_FILE		= $(SRCS:.cpp=.o)
 OBJS			= $(addprefix $(OBJDIR), $(OBJS_FILE))
 

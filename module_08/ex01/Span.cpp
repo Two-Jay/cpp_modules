@@ -6,7 +6,7 @@
 /*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 12:53:27 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 14:43:03 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 16:21:49 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Span::Span(const Span& n) {
 }
 
 Span& Span::operator= (const Span& n) {
-
+    this->storage->clear();
     delete this->storage;
     this->storage = new std::multiset<int>(*n.storage);
     this->max = n.getMax();
@@ -50,29 +50,11 @@ std::size_t Span::size(void) const {
 
 void Span::addNumber(int n)
 {
-    try {
-        if (this->storage->size() == max)
-        {
-            throw (NotEnoughCapacity());
-        }
-        storage->insert(n);
-    } catch (std::exception &e) {
-        std::cout << e.what() << std::endl;
-    }
-}
-
-void Span::addNumber(Span::iterator it_be, Span::iterator it_end)
-{
-    long remain = this->getMax() - this->size();
-    if (std::distance(it_be, it_end) > remain)
+    if (this->size() == max)
     {
         throw (NotEnoughCapacity());
     }
-    while (it_be != it_end)
-    {
-        this->storage->insert(*it_be);
-        it_be++;
-    }
+    storage->insert(n);
 }
 
 unsigned int Span::shortestSpan(void) const {
