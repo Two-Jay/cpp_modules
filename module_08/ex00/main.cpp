@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/02 01:49:58 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 03:07:27 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ int main(int, char**)
         }
         std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "" << std::endl << std::endl << std::setfill(' ');
         try {
-            std::vector<int>::iterator it = easyfind(&int_vector, 30);
+            std::vector<int>::iterator it = easyfind(int_vector, 30);
             std::cout << *it << std::endl;
-            it = easyfind(&int_vector, 60);
+            it = easyfind(int_vector, 60);
             std::cout << *it << std::endl;
-            it = easyfind(&int_vector, 0);
+            it = easyfind(int_vector, 0);
             std::cout << *it << std::endl;
-            it = easyfind(&int_vector, 90);
+            it = easyfind(int_vector, 90);
             std::cout << *it << std::endl;
-            it = easyfind(&int_vector, 55);
+            it = easyfind(int_vector, 55);
         } catch (std::exception& e) {
             std::cout << e.what() << std::endl;
         }
@@ -64,15 +64,15 @@ int main(int, char**)
         }
         std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "" << std::endl << std::endl << std::setfill(' ');
         try {
-            std::deque<int>::iterator it = easyfind(&int_deque, 30);
+            std::deque<int>::iterator it = easyfind(int_deque, 30);
             std::cout << *it << std::endl;
-            it = easyfind(&int_deque, 60);
+            it = easyfind(int_deque, 60);
             std::cout << *it << std::endl;
-            it = easyfind(&int_deque, 0);
+            it = easyfind(int_deque, 0);
             std::cout << *it << std::endl;
-            it = easyfind(&int_deque, 90);
+            it = easyfind(int_deque, 90);
             std::cout << *it << std::endl;
-            it = easyfind(&int_deque, 55);
+            it = easyfind(int_deque, 55);
         } catch (std::exception& e) {
             std::cout << e.what() << std::endl;
         }
@@ -91,15 +91,15 @@ int main(int, char**)
         }
         std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "" << std::endl << std::endl << std::setfill(' ');
         try {
-            std::array<int, TEST_MAX>::iterator it = easyfind(&int_array, 30);
+            std::array<int, TEST_MAX>::iterator it = easyfind(int_array, 30);
             std::cout << *it << std::endl;
-            it = easyfind(&int_array, 60);
+            it = easyfind(int_array, 60);
             std::cout << *it << std::endl;
-            it = easyfind(&int_array, 0);
+            it = easyfind(int_array, 0);
             std::cout << *it << std::endl;
-            it = easyfind(&int_array, 90);
+            it = easyfind(int_array, 90);
             std::cout << *it << std::endl;
-            it = easyfind(&int_array, 55);
+            it = easyfind(int_array, 55);
         } catch (std::exception& e) {
             std::cout << e.what() << std::endl;
         }
@@ -119,15 +119,15 @@ int main(int, char**)
         }
         std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "" << std::endl << std::endl << std::setfill(' ');
         try {
-            it = easyfind(&int_list, 30);
+            it = easyfind(int_list, 30);
             std::cout << *it << std::endl;
-            it = easyfind(&int_list, 60);
+            it = easyfind(int_list, 60);
             std::cout << *it << std::endl;
-            it = easyfind(&int_list, 0);
+            it = easyfind(int_list, 0);
             std::cout << *it << std::endl;
-            it = easyfind(&int_list, 90);
+            it = easyfind(int_list, 90);
             std::cout << *it << std::endl;
-            it = easyfind(&int_list, 55);
+            it = easyfind(int_list, 55);
         } catch (std::exception& e) {
             std::cout << e.what() << std::endl;
         }    

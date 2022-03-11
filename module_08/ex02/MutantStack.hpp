@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/03 01:37:55 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/03 10:44:17 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 03:33:11 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,12 @@ class MutantStack : public std::stack<T> {
         typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
         typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 
-
         iterator begin(void) {
             return this->c.begin();
         }
 
         iterator end(void) {
             return this->c.end();
-        }
-
-        const_iterator cbegin(void) const {
-            return this->c.cbegin();
-        }
-
-        const_iterator cend(void) const {
-            return this->c.cend();
         }
 
         reverse_iterator rbegin(void) {
@@ -48,18 +39,10 @@ class MutantStack : public std::stack<T> {
             return this->c.rend();
         }
 
-        const_reverse_iterator crbegin(void) const {
-            return this->c.crbegin();
-        }
-
-        const_reverse_iterator crend(void) const {
-            return this->c.crend();
-        }
-
         MutantStack() {};
         ~MutantStack() {};
-        MutantStack(const MutantStack& n) { *this = n;}
+        MutantStack(const MutantStack& n) { if (this != &n ){ *this = n; }}
         MutantStack& operator= (const MutantStack& n) { *this = n; return *this; };
 };
 
-#endif
+#endif // MUTANTSTACK_HPP

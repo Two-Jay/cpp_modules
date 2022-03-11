@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 01:50:18 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/03 01:32:56 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 12:05:49 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,23 @@
 class Span {
     private :
         std::multiset<int> *storage;
-        unsigned int max;
+        std::size_t max;
         Span();
 
     public :
+        typedef std::multiset<int>::iterator iterator;
+
         Span(unsigned int param);
         Span(const Span& n);
 
+        iterator begin(void);
+        iterator end(void);
+
         void addNumber(int param);
-        unsigned int getMax(void) const;
+        void addNumber(iterator it_be, iterator it_end);
+
+        std::size_t getMax(void) const;
+        std::size_t size(void) const;
         void printNumber(void) const;
         unsigned int shortestSpan(void) const;
         unsigned int longestSpan(void) const;
@@ -43,10 +51,7 @@ class Span {
             const char *what(void) const throw();
         };
 
-
         ~Span();
 };
-
-std::ostream& operator<< (std::ostream& os, const Span& n);
 
 #endif // SPAN_HPP
