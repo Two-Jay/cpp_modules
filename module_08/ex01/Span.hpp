@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 01:50:18 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 15:26:19 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 18:43:51 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Span {
 
         void addNumber(int param);
         template<typename InputIt>
-        void addNumber(InputIt& it_be, InputIt& it_end)
+        void addNumber(InputIt it_be, InputIt it_end)
         {
             long remain = this->getMax() - this->size();
             if (std::distance(it_be, it_end) > remain)
@@ -46,7 +46,7 @@ class Span {
             }
             while (it_be != it_end)
             {
-                this->storage->insert(*it_be);
+                this->addNumber(*it_be);
                 it_be++;
             }
         }
@@ -68,7 +68,10 @@ class Span {
         class NotEnoughValuesToLongestSpan : public std::exception {
             const char *what(void) const throw();
         };
-
+        class DuplicatedValue : public std::exception {
+            const char *what(void) const throw();
+        };
+        
         ~Span();
 };
 

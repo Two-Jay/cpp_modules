@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 17:05:31 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 18:44:10 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,13 +112,54 @@ int main()
     {
         std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< Span : edge case >==" << std::endl << std::endl << std::setfill(' ');
         Span sp(TEST_SMALL_LIMIT);
-        sp.addNumber(10);
-        sp.addNumber(100);
-        sp.addNumber(120);
-        sp.addNumber(121);
-        sp.addNumber(1000);
-        sp.addNumber(105);
+        try {
+            sp.addNumber(10);
+            sp.addNumber(100);
+            sp.addNumber(120);
+            sp.addNumber(120);
+            sp.addNumber(1000);
+            sp.addNumber(105);
+        } catch (std::exception& e) {
+            std::cerr << e.what() << std::endl;
+        }
         sp.printNumber();
+        print_spans_and_size(sp);
+        Span::iterator it = sp.begin();
+        std::cout << *it << std::endl;
+        it++;
+        std::cout << *it << std::endl;
+        it--;
+        std::cout << *it << std::endl;
+        sp.printNumber();
+    }
+    {
+        std::vector<int> vec;
+        Span sp(TEST_SMALL_LIMIT);
+        for (int i = 0; i < TEST_SMALL_LIMIT; i++)
+        {
+            vec.push_back(10);
+        }
+        try {
+            std::vector<int>::iterator it = vec.begin();
+            std::vector<int>::iterator ite = vec.end();
+            sp.addNumber(it, ite);
+        } catch (std::exception& e) {
+            std::cerr << e.what() << std::endl;
+        }
+        sp.printNumber();
+    }
+    {
+        Span sp(TEST_SMALL_LIMIT);
+        sp.addNumber(INT_MIN);
+        sp.addNumber(INT_MAX);
+        print_spans_and_size(sp);
+    }
+    {
+        Span sp(TEST_SMALL_LIMIT);
+        sp.addNumber(-10);
+        sp.addNumber(-20);
+        sp.addNumber(-330);
+        sp.addNumber(-100);
         print_spans_and_size(sp);
     }
     std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "" << std::endl << std::endl << std::setfill(' ');

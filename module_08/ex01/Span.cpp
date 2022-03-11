@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
+/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 12:53:27 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 16:21:49 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 18:40:10 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ Span::Span(unsigned int param) {
 }
 
 Span::~Span() {
+    this->storage->clear();
     delete this->storage;
-    max = 0;
 };
 
 Span::Span(const Span& n) {
@@ -54,6 +54,10 @@ void Span::addNumber(int n)
     {
         throw (NotEnoughCapacity());
     }
+    if (std::find(this->begin(), this->end(), n) != this->end())
+    {
+        throw (DuplicatedValue());
+    }
     storage->insert(n);
 }
 
@@ -63,8 +67,8 @@ unsigned int Span::shortestSpan(void) const {
     {
         throw (NotEnoughValuesToShortestSpan());
     }
-    int ret = INT_MAX;
-    int sum = 0;
+    unsigned int ret = UINT_MAX;
+    unsigned int sum = 0;
     std::multiset<int>::iterator it1 = this->begin();
     std::multiset<int>::iterator it2 = ++(this->begin());
     for (std::size_t i = 0; i < size - 1; i++)
@@ -96,6 +100,10 @@ const char *Span::NotEnoughValuesToShortestSpan::what(void) const throw() {
 
 const char *Span::NotEnoughValuesToLongestSpan::what(void) const throw() {
     return "\'Span\' - Error : Not enough values to run Span::LongestSpan()";
+}
+
+const char *Span::DuplicatedValue::what(void) const throw() {
+    return "\'Span\' - Error : duplicated value in Container";
 }
 
 void Span::printNumber(void) const {

@@ -6,7 +6,7 @@
 /*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 03:07:27 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 18:05:25 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,14 @@ int main(int, char**)
         } catch (std::exception& e) {
             std::cout << e.what() << std::endl;
         }
+        std::cout << "easyfind with empty vector" << std::endl;
+        std::vector<int> int_vector1;
+        try {
+            std::vector<int>::iterator it = easyfind(int_vector1, 30);
+            std::cout << *it << std::endl;
+        } catch (std::exception& e) {
+            std::cout << e.what() << std::endl;
+        }
     }
     {
         std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< easyfind : deque tests >==" << std::endl << std::endl << std::setfill(' ');
@@ -77,33 +85,33 @@ int main(int, char**)
             std::cout << e.what() << std::endl;
         }
     }
-    {
-        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< easyfind : array tests >==" << std::endl << std::endl << std::setfill(' ');
-        std::array<int, TEST_MAX> int_array;
-        for (size_t i = 0; i < TEST_MAX; i++)
-        {
-            int_array.at(i) = i * 10;
-        }
-        std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "< values in array >==" << std::endl << std::endl << std::setfill(' ');
-        for (size_t i = 0; i < int_array.size(); i++)
-        {
-            std::cout << int_array[i] << " ";
-        }
-        std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "" << std::endl << std::endl << std::setfill(' ');
-        try {
-            std::array<int, TEST_MAX>::iterator it = easyfind(int_array, 30);
-            std::cout << *it << std::endl;
-            it = easyfind(int_array, 60);
-            std::cout << *it << std::endl;
-            it = easyfind(int_array, 0);
-            std::cout << *it << std::endl;
-            it = easyfind(int_array, 90);
-            std::cout << *it << std::endl;
-            it = easyfind(int_array, 55);
-        } catch (std::exception& e) {
-            std::cout << e.what() << std::endl;
-        }
-    }
+    // {
+    //     std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< easyfind : array tests >==" << std::endl << std::endl << std::setfill(' ');
+    //     std::array<int, TEST_MAX> int_array;
+    //     for (size_t i = 0; i < TEST_MAX; i++)
+    //     {
+    //         int_array.at(i) = i * 10;
+    //     }
+    //     std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "< values in array >==" << std::endl << std::endl << std::setfill(' ');
+    //     for (size_t i = 0; i < int_array.size(); i++)
+    //     {
+    //         std::cout << int_array[i] << " ";
+    //     }
+    //     std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "" << std::endl << std::endl << std::setfill(' ');
+    //     try {
+    //         std::array<int, TEST_MAX>::iterator it = easyfind(int_array, 30);
+    //         std::cout << *it << std::endl;
+    //         it = easyfind(int_array, 60);
+    //         std::cout << *it << std::endl;
+    //         it = easyfind(int_array, 0);
+    //         std::cout << *it << std::endl;
+    //         it = easyfind(int_array, 90);
+    //         std::cout << *it << std::endl;
+    //         it = easyfind(int_array, 55);
+    //     } catch (std::exception& e) {
+    //         std::cout << e.what() << std::endl;
+    //     }
+    // }
     {
         std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< easyfind : list tests >==" << std::endl << std::endl << std::setfill(' ');
         std::list<int> int_list;
@@ -119,15 +127,10 @@ int main(int, char**)
         }
         std::cout << std::endl << std::setw(HEAD_WIDTH / 2) << std::setfill('.') << "" << std::endl << std::endl << std::setfill(' ');
         try {
+            std::cout << int_list.size() << std::endl;
             it = easyfind(int_list, 30);
             std::cout << *it << std::endl;
-            it = easyfind(int_list, 60);
-            std::cout << *it << std::endl;
-            it = easyfind(int_list, 0);
-            std::cout << *it << std::endl;
-            it = easyfind(int_list, 90);
-            std::cout << *it << std::endl;
-            it = easyfind(int_list, 55);
+            std::cout << int_list.size() << std::endl;
         } catch (std::exception& e) {
             std::cout << e.what() << std::endl;
         }    
