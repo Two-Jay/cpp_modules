@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 00:46:53 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 18:06:00 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 19:29:16 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 template <typename C>
 typename C::iterator easyfind(C& container, int value) {
-    container.push_back(1);
     typename C::iterator ret = std::find(container.begin(), container.end(), value);
     if (ret == container.end())
     {

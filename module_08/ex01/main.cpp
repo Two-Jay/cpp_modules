@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 18:44:10 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 19:46:29 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@
 #define TEST_LARGE_LIMIT 10000
 #define HEAD_WIDTH 70
 
-void print_spans_and_size(Span& sp)
+void print_sp_and_size(Span& sp)
 {
+    std::cout << std::endl << std::setw(HEAD_WIDTH - 20) << std::setfill('.') << "" << std::endl << std::endl << std::setfill(' ');
     std::cout << "Max : " << sp.getMax() << " , Size : " << sp.size() << std::endl;
+    sp.printNumber();
     std::cout << "ShortestSpan : " << sp.shortestSpan() << std::endl;
     std::cout << "LongestSpan : " << sp.longestSpan() << std::endl;
 }
@@ -40,8 +42,17 @@ int main()
         {
             sp.addNumber(rand());
         }
-        sp.printNumber();
-        print_spans_and_size(sp);
+        print_sp_and_size(sp);
+    }
+    {
+        srand(time(NULL));
+
+        Span sp(TEST_LARGE_LIMIT);
+        for (int i = 0; i < TEST_LARGE_LIMIT; i++)
+        {
+            sp.addNumber(rand());
+        }
+        print_sp_and_size(sp);        
     }
     {
         std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< Span : addNumber with iterator :: normal >==" << std::endl << std::endl << std::setfill(' ');
@@ -54,9 +65,8 @@ int main()
         Span::iterator it_end = sp->end();
         Span sp1(TEST_SMALL_LIMIT);
         sp1.addNumber(it_be, it_end);
-        sp1.printNumber();
         sp->printNumber();
-        print_spans_and_size(sp1);
+        print_sp_and_size(sp1);
         delete sp;
     }
     {
@@ -70,18 +80,17 @@ int main()
         std::vector<int>::iterator it = vec.begin();
         std::vector<int>::iterator it1 = vec.end();
         sp.addNumber(it, it1);
-        sp.printNumber();
-        print_spans_and_size(sp);
+        print_sp_and_size(sp);
     }
     {
         std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< Span : addNumber with iterator :: exception >==" << std::endl << std::endl << std::setfill(' ');
         Span sp1(TEST_SMALL_LIMIT);
         Span sp(TEST_SMALL_LIMIT);
-        for (int i = 0; i < TEST_SMALL_LIMIT; i++)
-        {
-            sp.addNumber(rand());
-        }
         try {
+            for (int i = 0; i < TEST_SMALL_LIMIT; i++)
+            {
+                sp.addNumber(rand());
+            }
             sp.addNumber(42);
             sp.printNumber();
         } catch (std::exception& e) {
@@ -110,7 +119,23 @@ int main()
         }
     }
     {
-        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< Span : edge case >==" << std::endl << std::endl << std::setfill(' ');
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< Span : edge cases >==" << std::endl << std::endl << std::setfill(' ');
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< case0 : unordered shortest span >==" << std::endl << std::endl << std::setfill(' ');
+        Span sp(TEST_SMALL_LIMIT);
+        try {
+            sp.addNumber(10);
+            sp.addNumber(100);
+            sp.addNumber(120);
+            sp.addNumber(121);
+            sp.addNumber(1000);
+            sp.addNumber(105);
+        } catch (std::exception& e) {
+            std::cerr << e.what() << std::endl;
+        }
+        print_sp_and_size(sp);
+    }
+    {
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< case1 : duplicated number >==" << std::endl << std::endl << std::setfill(' ');
         Span sp(TEST_SMALL_LIMIT);
         try {
             sp.addNumber(10);
@@ -122,17 +147,17 @@ int main()
         } catch (std::exception& e) {
             std::cerr << e.what() << std::endl;
         }
-        sp.printNumber();
-        print_spans_and_size(sp);
+        print_sp_and_size(sp);
         Span::iterator it = sp.begin();
         std::cout << *it << std::endl;
         it++;
         std::cout << *it << std::endl;
         it--;
         std::cout << *it << std::endl;
-        sp.printNumber();
+        print_sp_and_size(sp);
     }
     {
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< case2 : addNumber with other container's iterators >==" << std::endl << std::endl << std::setfill(' ');
         std::vector<int> vec;
         Span sp(TEST_SMALL_LIMIT);
         for (int i = 0; i < TEST_SMALL_LIMIT; i++)
@@ -149,18 +174,35 @@ int main()
         sp.printNumber();
     }
     {
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< case3 : get Spans with INT_MIN / INT_MAX >==" << std::endl << std::endl << std::setfill(' ');
         Span sp(TEST_SMALL_LIMIT);
         sp.addNumber(INT_MIN);
         sp.addNumber(INT_MAX);
-        print_spans_and_size(sp);
+        print_sp_and_size(sp);
     }
     {
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< case4 : get Spans with negative numbers >==" << std::endl << std::endl << std::setfill(' ');
         Span sp(TEST_SMALL_LIMIT);
         sp.addNumber(-10);
         sp.addNumber(-20);
         sp.addNumber(-330);
         sp.addNumber(-100);
-        print_spans_and_size(sp);
+        print_sp_and_size(sp);
+    }
+    {
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< case5 : Span's iterator case >==" << std::endl << std::endl << std::setfill(' ');
+        Span sp(TEST_SMALL_LIMIT);
+        for (int i = 0; i < TEST_SMALL_LIMIT; i++)
+        {
+            sp.addNumber(rand());
+        }
+        Span::iterator it = sp.begin();
+        std::cout << *it << std::endl;
+        it++;
+        std::cout << *it << std::endl;
+        it--;
+        std::cout << *it << std::endl;
+        print_sp_and_size(sp);
     }
     std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "" << std::endl << std::endl << std::setfill(' ');
     system("leaks Span");

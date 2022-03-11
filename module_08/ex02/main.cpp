@@ -3,21 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 19:09:11 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 19:42:56 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
 #include <list>
 #include <vector>
 #include "MutantStack.hpp"
 
+#define HEAD_WIDTH 70
+
 int main()
 {
     {
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< MutantStack : basic test >==" << std::endl << std::endl << std::setfill(' ');
         MutantStack<int> mstack;
         
         mstack.push(5);
@@ -35,21 +39,11 @@ int main()
         MutantStack<int>::const_reverse_iterator cite = mstack.rbegin();
 
         std::cout << "const iterator test" << std::endl;
-        std::cout << *cit++ << std::endl;
-        std::cout << *cit++ << std::endl;
-        std::cout << *cit-- << std::endl;
-        std::cout << *cit-- << std::endl;
-        std::cout << *cit << std::endl;
-
+        std::cout << *cit++ << " " << *cit++ << " " <<  *cit-- << " " << *cit-- << " " << *cit << std::endl;
 
         std::cout << "const reverse iterator test" << std::endl;
-        std::cout << *cite++ << std::endl;
-        std::cout << *cite++ << std::endl;
-        std::cout << *cite-- << std::endl;
-        std::cout << *cite-- << std::endl;
-        std::cout << *cite << std::endl;
+        std::cout << *cite++ << " " << *cite++ << " " <<  *cite-- << " " << *cite-- << " " << *cite << std::endl;
 
-        
         ++it;
         --it;
         std::cout << "iterator test" << std::endl;
@@ -59,6 +53,7 @@ int main()
         }        
     }
     {
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< MutantStack : iterator test >==" << std::endl << std::endl << std::setfill(' ');
         MutantStack<int> mstack;
         
         mstack.push(5);
@@ -74,20 +69,10 @@ int main()
         MutantStack<int>::const_reverse_iterator cite = mstack.rbegin();
 
         std::cout << "const iterator test" << std::endl;
-        std::cout << *cit++ << std::endl;
-        std::cout << *cit++ << std::endl;
-        std::cout << *cit-- << std::endl;
-        std::cout << *cit-- << std::endl;
-        std::cout << *cit << std::endl;
-
+        std::cout << *cit++ << " " << *cit++ << " " <<  *cit-- << " " << *cit-- << " " << *cit << std::endl;
 
         std::cout << "const reverse iterator test" << std::endl;
-        std::cout << *cite++ << std::endl;
-        std::cout << *cite++ << std::endl;
-        std::cout << *cite-- << std::endl;
-        std::cout << *cite-- << std::endl;
-        std::cout << *cite << std::endl;
-
+        std::cout << *cite++ << " " << *cite++ << " " <<  *cite-- << " " << *cite-- << " " << *cite << std::endl;
         
         ++it;
         --it;
@@ -98,6 +83,7 @@ int main()
         }
     }
     {
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< vector : iterator test >==" << std::endl << std::endl << std::setfill(' ');
         std::vector<int> target1;
         target1.push_back(5);
         target1.push_back(17);
@@ -112,19 +98,10 @@ int main()
         std::vector<int>::const_reverse_iterator cite = target1.rbegin();
 
         std::cout << "const iterator test" << std::endl;
-        std::cout << *cit++ << std::endl;
-        std::cout << *cit++ << std::endl;
-        std::cout << *cit-- << std::endl;
-        std::cout << *cit-- << std::endl;
-        std::cout << *cit << std::endl;
-
+        std::cout << *cit++ << " " << *cit++ << " " <<  *cit-- << " " << *cit-- << " " << *cit << std::endl;
 
         std::cout << "const reverse iterator test" << std::endl;
-        std::cout << *cite++ << std::endl;
-        std::cout << *cite++ << std::endl;
-        std::cout << *cite-- << std::endl;
-        std::cout << *cite-- << std::endl;
-        std::cout << *cite << std::endl;
+        std::cout << *cite++ << " " << *cite++ << " " <<  *cite-- << " " << *cite-- << " " << *cite << std::endl;
 
         
         ++it;
@@ -136,6 +113,7 @@ int main()
         }
     }
     {
+        std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< list : iterator test >==" << std::endl << std::endl << std::setfill(' ');
         std::list<int> target2;
         target2.push_back(5);
         target2.push_back(17);
@@ -148,19 +126,10 @@ int main()
         std::list<int>::const_reverse_iterator cite = target2.rbegin();
 
         std::cout << "const iterator test" << std::endl;
-        std::cout << *cit++ << std::endl;
-        std::cout << *cit++ << std::endl;
-        std::cout << *cit-- << std::endl;
-        std::cout << *cit-- << std::endl;
-        std::cout << *cit << std::endl;
-
+        std::cout << *cit++ << " " << *cit++ << " " <<  *cit-- << " " << *cit-- << " " << *cit << std::endl;
 
         std::cout << "const reverse iterator test" << std::endl;
-        std::cout << *cite++ << std::endl;
-        std::cout << *cite++ << std::endl;
-        std::cout << *cite-- << std::endl;
-        std::cout << *cite-- << std::endl;
-        std::cout << *cite << std::endl;
+        std::cout << *cite++ << " " << *cite++ << " " <<  *cite-- << " " << *cite-- << " " << *cite << std::endl;
 
         
         ++it;
