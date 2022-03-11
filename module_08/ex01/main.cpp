@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/25 02:42:50 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 13:55:27 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 14:44:33 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,23 @@ int main()
         Span::iterator it_be = sp.begin();
         Span::iterator it_end = sp.end();
         sp1.addNumber(10);
-        sp1.addNumber(it_be, it_end);
+        try {
+            sp1.addNumber(it_be, it_end);
+            sp1.printNumber();
+        } catch (std::exception& e) {
+            std::cerr << e.what() << std::endl;
+        }
         sp1.printNumber();
-        std::cout << sp.shortestSpan() << std::endl;
-        std::cout << sp.longestSpan() << std::endl;
+        try {
+            std::cout << sp1.shortestSpan() << std::endl;
+        } catch (std::exception& e) {
+            std::cerr << e.what() << std::endl;
+        }
+        try {
+            std::cout << sp1.longestSpan() << std::endl;
+        } catch (std::exception& e) {
+            std::cerr << e.what() << std::endl;
+        }
     }
     {
         std::cout << std::endl << std::setw(HEAD_WIDTH) << std::setfill('=') << "< Span : edge case >==" << std::endl << std::endl << std::setfill(' ');

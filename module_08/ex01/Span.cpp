@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 12:53:27 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 13:51:29 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 14:43:03 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,59 +63,45 @@ void Span::addNumber(int n)
 
 void Span::addNumber(Span::iterator it_be, Span::iterator it_end)
 {
-    try {
-        long remain = this->getMax() - this->size();
-        if (std::distance(it_be, it_end) > remain)
-        {
-            throw (NotEnoughCapacity());
-        }
-        while (it_be != it_end)
-        {
-            this->storage->insert(*it_be);
-            it_be++;
-        }
-    } catch (std::exception &e) {
-        std::cout << e.what() << std::endl;
+    long remain = this->getMax() - this->size();
+    if (std::distance(it_be, it_end) > remain)
+    {
+        throw (NotEnoughCapacity());
+    }
+    while (it_be != it_end)
+    {
+        this->storage->insert(*it_be);
+        it_be++;
     }
 }
 
 unsigned int Span::shortestSpan(void) const {
-    try {
-        std::size_t size = this->size();
-        if (size < 2)
-        {
-            throw (NotEnoughValuesToShortestSpan());
-        }
-        int ret = INT_MAX;
-        int sum = 0;
-        std::multiset<int>::iterator it1 = this->storage->begin();
-        std::multiset<int>::iterator it2 = ++(this->storage->begin());
-        for (std::size_t i = 0; i < size - 1; i++)
-        {
-            sum = *it2 - *it1;
-            if (ret > sum)
-                ret = sum;
-            it1++;
-            it2++;
-        }
-        return ret;
-    } catch (std::exception &e) {
-        std::cout << e.what() << std::endl;
-        return -1;
+    std::size_t size = this->size();
+    if (size < 2)
+    {
+        throw (NotEnoughValuesToShortestSpan());
     }
+    int ret = INT_MAX;
+    int sum = 0;
+    std::multiset<int>::iterator it1 = this->begin();
+    std::multiset<int>::iterator it2 = ++(this->begin());
+    for (std::size_t i = 0; i < size - 1; i++)
+    {
+        sum = *it2 - *it1;
+        if (ret > sum)
+            ret = sum;
+        it1++;
+        it2++;
+    }
+    return ret;
 }
 
 unsigned int Span::longestSpan(void) const {
-    try {
-        if (size() < 2)
-        {
-            throw (NotEnoughValuesToShortestSpan());
-        }
-        return (*(this->storage->rbegin()) - *(this->storage->begin())); 
-    } catch (std::exception &e) {
-        std::cout << e.what() << std::endl;
-        return -1;
+    if (size() < 2)
+    {
+        throw (NotEnoughValuesToLongestSpan());
     }
+    return (*(this->storage->rbegin()) - *(this->storage->begin()));
 }
 
 const char *Span::NotEnoughCapacity::what(void) const throw() {
@@ -126,6 +112,10 @@ const char *Span::NotEnoughValuesToShortestSpan::what(void) const throw() {
     return "\'Span\' - Error : Not enough values to run Span::ShortestSpan()";
 }
 
+const char *Span::NotEnoughValuesToLongestSpan::what(void) const throw() {
+    return "\'Span\' - Error : Not enough values to run Span::LongestSpan()";
+}
+
 void Span::printNumber(void) const {
     for (std::multiset<int>::iterator iter = storage->begin(); iter != storage->end() ; iter++)
     {
@@ -134,12 +124,22 @@ void Span::printNumber(void) const {
     std::cout << std::endl;
 }
 
-Span::iterator Span::begin(void)
+Span::iterator Span::begin(void) const
 {
     return this->storage->begin();
 }
 
-Span::iterator Span::end(void)
+Span::iterator Span::end(void) const
 {
     return this->storage->end();
+}
+
+Span::reverse_iterator Span::rbegin(void) const
+{
+    return this->storage->rbegin();
+}
+
+Span::reverse_iterator Span::rend(void) const
+{
+    return this->storage->rend();
 }

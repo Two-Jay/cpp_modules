@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jekim <jekim@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jekim <arabi1549@naver.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/02 01:50:18 by jekim             #+#    #+#             */
-/*   Updated: 2022/03/11 12:05:49 by jekim            ###   ########.fr       */
+/*   Updated: 2022/03/11 14:41:48 by jekim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,15 @@ class Span {
 
     public :
         typedef std::multiset<int>::iterator iterator;
+        typedef std::multiset<int>::reverse_iterator reverse_iterator;
 
         Span(unsigned int param);
         Span(const Span& n);
 
-        iterator begin(void);
-        iterator end(void);
+        iterator begin(void) const;
+        iterator end(void) const;
+        reverse_iterator rbegin(void) const;
+        reverse_iterator rend(void) const;
 
         void addNumber(int param);
         void addNumber(iterator it_be, iterator it_end);
@@ -48,6 +51,9 @@ class Span {
         };
 
         class NotEnoughValuesToShortestSpan : public std::exception {
+            const char *what(void) const throw();
+        };
+        class NotEnoughValuesToLongestSpan : public std::exception {
             const char *what(void) const throw();
         };
 
